@@ -96,6 +96,7 @@ export default function ResponsiveLayout() {
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    ml: { sm: `${drawerWidth}px` },
                 }}
             >
                 <Toolbar>
@@ -103,7 +104,7 @@ export default function ResponsiveLayout() {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none' } }}
+                        sx={{ flexGrow: 1 }}
                     >
                         Developer Tools
                     </Typography>
@@ -119,19 +120,12 @@ export default function ResponsiveLayout() {
                 </Toolbar>
             </AppBar>
             <Box
-                component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-            >
-                <Toolbar />
-                <Outlet />
-            </Box>
-            <Box
                 component="nav"
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="mailbox folders"
             >
                 <Drawer
-                    anchor="right"
+                    anchor={isDesktop ? 'left' : 'right'}
                     variant={isDesktop ? 'permanent' : 'temporary'}
                     open={isDesktop ? true : mobileOpen}
                     onClose={handleDrawerToggle}
@@ -145,6 +139,13 @@ export default function ResponsiveLayout() {
                 >
                     {drawerContent}
                 </Drawer>
+            </Box>
+            <Box
+                component="main"
+                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+            >
+                <Toolbar />
+                <Outlet />
             </Box>
         </Box>
     );
