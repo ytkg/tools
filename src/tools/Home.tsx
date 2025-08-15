@@ -47,8 +47,8 @@ const Home: React.FC = () => {
         {filteredTools.map(tool => (
           <Box key={tool.path} sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', md: 'calc(33.33% - 16px)' } }}>
             <Card sx={{ height: '100%' }}>
-              <CardActionArea component={Link} to={tool.path} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                <CardContent sx={{ flexGrow: 1 }}>
+              <CardActionArea component={Link} to={tool.path} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
+                <CardContent sx={{ flexGrow: 1, width: '100%' }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
                     {tool.icon}
                     <Typography variant="h6" component="div" sx={{ ml: 1.5 }}>
