@@ -28,8 +28,14 @@ import FingerprintIcon from '@mui/icons-material/Fingerprint';
 
 const drawerWidth = 240;
 
-const AppBar = styled(MuiAppBar)(({ theme }) => ({
-  zIndex: theme.zIndex.drawer + 1,
+const AppBar = styled(MuiAppBar, {
+    shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme }) => ({
+    zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.primary,
+    boxShadow: 'none',
+    borderBottom: `1px solid ${theme.palette.divider}`,
 }));
 
 const Drawer = styled(MuiDrawer)(
