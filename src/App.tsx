@@ -11,6 +11,9 @@ import ColorConverter from './tools/ColorConverter';
 import MarkdownPreviewer from './tools/MarkdownPreviewer';
 import JwtDecoder from './tools/JwtDecoder';
 import HashGenerator from './tools/HashGenerator';
+import TimeZoneConverter from './tools/TimeZoneConverter';
+import IpAddressViewer from './tools/IpAddressViewer';
+import KeyboardEventViewer from './tools/KeyboardEventViewer';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const lightTheme = createTheme({
@@ -36,6 +39,9 @@ function App() {
             <Route path="markdown-previewer" element={<MarkdownPreviewer />} />
             <Route path="jwt-decoder" element={<JwtDecoder />} />
             <Route path="hash-generator" element={<HashGenerator />} />
+            <Route path="time-zone-converter" element={<TimeZoneConverter />} />
+            <Route path="ip-address-viewer" element={<IpAddressViewer />} />
+            <Route path="keyboard-event-viewer" element={<KeyboardEventViewer />} />
             {/* Redirect any other path to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>

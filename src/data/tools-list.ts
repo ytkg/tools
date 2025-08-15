@@ -9,4 +9,7 @@ export const toolList = [
     { text: 'Markdown Previewer', path: '/markdown-previewer', description: 'Edit and preview Markdown text in real-time.', tags: ['formatter', 'text', 'markdown'] },
     { text: 'JWT Decoder', path: '/jwt-decoder', description: 'Decode JSON Web Tokens and view their contents.', tags: ['decoder', 'jwt', 'security'] },
     { text: 'Hash Generator', path: '/hash-generator', description: 'Generate various hash digests (SHA-1, SHA-256, etc.).', tags: ['generator', 'security', 'hash'] },
+    { text: 'Time Zone Converter', path: '/time-zone-converter', description: 'Compare and check the time in multiple cities around the world.', tags: ['converter', 'time', 'timezone'] },
+    { text: 'IP Address Viewer', path: '/ip-address-viewer', description: 'Display your public IP address and browser information.', tags: ['network', 'ip', 'info'] },
+    { text: 'Keyboard Event Viewer', path: '/keyboard-event-viewer', description: 'Display information about pressed keyboard keys.', tags: ['keyboard', 'event', 'developer'] },
 ];
