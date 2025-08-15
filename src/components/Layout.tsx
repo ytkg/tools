@@ -104,7 +104,7 @@ export default function ResponsiveLayout() {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1 }}
+                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none' } }}
                     >
                         Developer Tools
                     </Typography>
