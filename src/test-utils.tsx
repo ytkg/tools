@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, within } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
@@ -20,4 +20,4 @@ const customRender = (
   options?: Omit<RenderOptions, 'wrapper'>,
 ) => render(ui, { wrapper: allTheProviders, ...options });
 
-export { customRender as render, screen, fireEvent, waitFor };
+export { customRender as render, screen, fireEvent, waitFor, within };

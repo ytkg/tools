@@ -9,6 +9,9 @@ import PaletteIcon from '@mui/icons-material/Palette';
 import ArticleIcon from '@mui/icons-material/Article';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import PublicIcon from '@mui/icons-material/Public';
+import HttpIcon from '@mui/icons-material/Http';
+import KeyboardIcon from '@mui/icons-material/Keyboard';
 import { toolList as toolsData } from './tools-list';
 
 const icons: { [key: string]: React.ReactNode } = {
@@ -22,6 +25,9 @@ const icons: { [key: string]: React.ReactNode } = {
     '/markdown-previewer': <ArticleIcon />,
     '/jwt-decoder': <VpnKeyIcon />,
     '/hash-generator': <FingerprintIcon />,
+    '/time-zone-converter': <PublicIcon />,
+    '/ip-address-viewer': <HttpIcon />,
+    '/keyboard-event-viewer': <KeyboardIcon />,
 };
 
 export const toolList = toolsData.map(tool => ({

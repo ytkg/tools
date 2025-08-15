@@ -80,13 +80,12 @@ Here is a typical workflow for completing a task in this repository.
     *   Add a link to the new tool in the navigation list in `src/components/Layout.tsx`.
     *   **Important:** If you add a new tool, remember to update the "Available Tools" list at the end of this document.
 
-4.  **Lint and Test:**
-    Before finalizing your changes, ensure your code adheres to the project's style guidelines and that all tests pass.
+4.  **Lint, Test, and Build:**
+    Before finalizing your changes, run the all-in-one check script to ensure your code adheres to the project's style guidelines, that all tests pass, and that the project builds successfully.
     ```bash
-    npm run lint
-    npm test
+    npm run check
     ```
-    Fix any errors or warnings reported by the linter and ensure all tests pass.
+    This command will run `lint`, `test`, and `build` in sequence. Fix any errors or warnings reported by any of these steps.
 
     **Important:** When adding new features (e.g., new components, new logic), you **must** add corresponding tests in the `src/tools/__tests__` directory to validate their functionality.
 
@@ -110,3 +109,6 @@ To avoid proposing tools that already exist, please check the following list of 
 *   Markdown Previewer
 *   JWT Decoder
 *   Hash Generator
+*   Time Zone Converter
+*   IP Address Viewer
+*   Keyboard Event Viewer
