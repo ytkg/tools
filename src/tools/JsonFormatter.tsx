@@ -60,15 +60,15 @@ const JsonFormatter: React.FC = () => {
             fullWidth
           />
         </Grid>
-        <Grid xs={12}>
-          <Button variant="contained" onClick={handleFormat} sx={{ mr: 1 }}>
-            Format
-          </Button>
-          <Button variant="outlined" onClick={handleClear}>
-            Clear
-          </Button>
-        </Grid>
       </Grid>
+      <Box sx={{ mt: 2 }}>
+        <Button variant="contained" onClick={handleFormat} sx={{ mr: 1 }}>
+          Format
+        </Button>
+        <Button variant="outlined" onClick={handleClear}>
+          Clear
+        </Button>
+      </Box>
     </Paper>
   );
 };

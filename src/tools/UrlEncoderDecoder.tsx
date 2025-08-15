@@ -48,9 +48,9 @@ const UrlEncoderDecoder: React.FC = () => {
         URL Encoder / Decoder
       </Typography>
       <Grid container spacing={2}>
-        <Grid xs={12}>
+        <Grid item xs={12} md={6}>
           <TextField
-            label="Input / Output"
+            label="Input"
             multiline
             rows={10}
             value={inputText}
@@ -61,9 +61,9 @@ const UrlEncoderDecoder: React.FC = () => {
             helperText={error}
           />
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12} md={6}>
           <TextField
-            label="Result"
+            label="Output"
             multiline
             rows={10}
             value={outputText}
@@ -74,18 +74,18 @@ const UrlEncoderDecoder: React.FC = () => {
             fullWidth
           />
         </Grid>
-        <Grid xs={12}>
-          <Button variant="contained" onClick={handleEncode} sx={{ mr: 1 }}>
-            Encode
-          </Button>
-          <Button variant="contained" onClick={handleDecode} sx={{ mr: 1 }}>
-            Decode
-          </Button>
-          <Button variant="outlined" onClick={handleClear}>
-            Clear
-          </Button>
-        </Grid>
       </Grid>
+      <Box sx={{ mt: 2 }}>
+        <Button variant="contained" onClick={handleEncode} sx={{ mr: 1 }}>
+          Encode
+        </Button>
+        <Button variant="contained" onClick={handleDecode} sx={{ mr: 1 }}>
+          Decode
+        </Button>
+        <Button variant="outlined" onClick={handleClear}>
+          Clear
+        </Button>
+      </Box>
     </Paper>
   );
 };
