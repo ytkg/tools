@@ -1,0 +1,12 @@
+export const toolList = [
+    { text: 'JSON Formatter', path: '/json-formatter', description: 'Format and validate JSON documents.', tags: ['formatter', 'json'] },
+    { text: 'Base64 Converter', path: '/base64-converter', description: 'Encode and decode Base64 strings.', tags: ['encoder', 'decoder', 'converter'] },
+    { text: 'Character Counter', path: '/character-counter', description: 'Count characters, words, and lines in text.', tags: ['counter', 'text'] },
+    { text: 'QR Code Generator', path: '/qr-code-generator', description: 'Generate QR codes from text or URLs.', tags: ['generator', 'image'] },
+    { text: 'Unix Timestamp', path: '/unix-timestamp', description: 'Convert between Unix timestamps and human-readable dates.', tags: ['converter', 'time'] },
+    { text: 'URL Encoder/Decoder', path: '/url-encoder-decoder', description: 'Encode and decode URL components.', tags: ['encoder', 'decoder', 'url'] },
+    { text: 'Color Converter', path: '/color-converter', description: 'Convert between HEX and RGB color codes.', tags: ['converter', 'color', 'css'] },
+    { text: 'Markdown Previewer', path: '/markdown-previewer', description: 'Edit and preview Markdown text in real-time.', tags: ['formatter', 'text', 'markdown'] },
+    { text: 'JWT Decoder', path: '/jwt-decoder', description: 'Decode JSON Web Tokens and view their contents.', tags: ['decoder', 'jwt', 'security'] },
+    { text: 'Hash Generator', path: '/hash-generator', description: 'Generate various hash digests (SHA-1, SHA-256, etc.).', tags: ['generator', 'security', 'hash'] },
+];
