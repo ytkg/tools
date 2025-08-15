@@ -10,31 +10,31 @@ describe('Base64Converter', () => {
 
   it('encodes text to Base64', () => {
     render(<Base64Converter />);
-    const inputArea = screen.getByLabelText('Input / Output');
+    const inputArea = screen.getByLabelText('Input');
     const encodeButton = screen.getByText('Encode');
 
     fireEvent.change(inputArea, { target: { value: 'hello world' } });
     fireEvent.click(encodeButton);
 
-    const outputArea = screen.getByLabelText('Result');
+    const outputArea = screen.getByLabelText('Output');
     expect(outputArea).toHaveValue('aGVsbG8gd29ybGQ=');
   });
 
   it('decodes Base64 to text', () => {
     render(<Base64Converter />);
-    const inputArea = screen.getByLabelText('Input / Output');
+    const inputArea = screen.getByLabelText('Input');
     const decodeButton = screen.getByText('Decode');
 
     fireEvent.change(inputArea, { target: { value: 'aGVsbG8gd29ybGQ=' } });
     fireEvent.click(decodeButton);
 
-    const outputArea = screen.getByLabelText('Result');
+    const outputArea = screen.getByLabelText('Output');
     expect(outputArea).toHaveValue('hello world');
   });
 
   it('shows an error for invalid Base64 string on decode', () => {
     render(<Base64Converter />);
-    const inputArea = screen.getByLabelText('Input / Output');
+    const inputArea = screen.getByLabelText('Input');
     const decodeButton = screen.getByText('Decode');
 
     fireEvent.change(inputArea, { target: { value: 'invalid base64' } });

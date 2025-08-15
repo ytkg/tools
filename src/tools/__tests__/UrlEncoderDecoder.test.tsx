@@ -10,7 +10,7 @@ describe('UrlEncoderDecoder', () => {
 
   it('encodes a URL component', () => {
     render(<UrlEncoderDecoder />);
-    const inputArea = screen.getByLabelText('Input / Output');
+    const inputArea = screen.getByLabelText('Input');
     const encodeButton = screen.getByText('Encode');
 
     const rawString = 'https://example.com/?q=test value';
@@ -19,13 +19,13 @@ describe('UrlEncoderDecoder', () => {
     fireEvent.change(inputArea, { target: { value: rawString } });
     fireEvent.click(encodeButton);
 
-    const outputArea = screen.getByLabelText('Result');
+    const outputArea = screen.getByLabelText('Output');
     expect(outputArea).toHaveValue(encodedString);
   });
 
   it('decodes a URL component', () => {
     render(<UrlEncoderDecoder />);
-    const inputArea = screen.getByLabelText('Input / Output');
+    const inputArea = screen.getByLabelText('Input');
     const decodeButton = screen.getByText('Decode');
 
     const rawString = 'https://example.com/?q=test value';
@@ -34,7 +34,7 @@ describe('UrlEncoderDecoder', () => {
     fireEvent.change(inputArea, { target: { value: encodedString } });
     fireEvent.click(decodeButton);
 
-    const outputArea = screen.getByLabelText('Result');
+    const outputArea = screen.getByLabelText('Output');
     expect(outputArea).toHaveValue(rawString);
   });
 });
