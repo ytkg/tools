@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PageMeta from '../components/PageMeta';
 import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const UrlEncoderDecoder: React.FC = () => {
@@ -44,6 +45,7 @@ const UrlEncoderDecoder: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <PageMeta title="URL Encoder/Decoder" description="Encode and decode URL components." />
       <Typography variant="h4" component="h1" gutterBottom>
         URL Encoder / Decoder
       </Typography>

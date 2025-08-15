@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import PageMeta from '../components/PageMeta';
 import { TextField, Typography, Paper, Box } from '@mui/material';
 
 const CharacterCounter: React.FC = () => {
@@ -14,6 +15,7 @@ const CharacterCounter: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <PageMeta title="Character Counter" description="Count characters, words, and lines in text." />
       <Typography variant="h4" component="h1" gutterBottom>
         Character Counter
       </Typography>

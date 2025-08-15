@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PageMeta from '../components/PageMeta';
 import { TextField, Typography, Paper, Slider, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
 import { QRCodeCanvas } from 'qrcode.react';
 
@@ -9,6 +10,7 @@ const QrCodeGenerator: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <PageMeta title="QR Code Generator" description="Generate QR codes from text or URLs." />
       <Typography variant="h4" component="h1" gutterBottom>
         QR Code Generator
       </Typography>

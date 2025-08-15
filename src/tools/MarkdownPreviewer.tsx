@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PageMeta from '../components/PageMeta';
 import { TextField, Paper, Typography, Box } from '@mui/material';
 import { marked } from 'marked';
 
@@ -56,6 +57,7 @@ const MarkdownPreviewer: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <PageMeta title="Markdown Previewer" description="Edit and preview Markdown text in real-time." />
        <Typography variant="h4" component="h1" gutterBottom>
         Markdown Previewer
       </Typography>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PageMeta from '../components/PageMeta';
 import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const JsonFormatter: React.FC = () => {
@@ -30,6 +31,7 @@ const JsonFormatter: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <PageMeta title="JSON Formatter" description="Format and validate JSON documents." />
       <Typography variant="h4" component="h1" gutterBottom>
         JSON Formatter
       </Typography>

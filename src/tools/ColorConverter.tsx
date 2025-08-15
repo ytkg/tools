@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import PageMeta from '../components/PageMeta';
 import { TextField, Typography, Paper, Box } from '@mui/material';
 
 // Basic color conversion functions
@@ -46,6 +47,7 @@ const ColorConverter: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <PageMeta title="Color Converter" description="Convert between HEX and RGB color codes." />
       <Typography variant="h4" component="h1" gutterBottom>
         Color Converter
       </Typography>

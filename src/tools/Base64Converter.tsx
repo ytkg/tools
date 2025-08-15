@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PageMeta from '../components/PageMeta';
 import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const Base64Converter: React.FC = () => {
@@ -44,6 +45,7 @@ const Base64Converter: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <PageMeta title="Base64 Converter" description="Encode and decode Base64 strings." />
       <Typography variant="h4" component="h1" gutterBottom>
         Base64 Converter
       </Typography>

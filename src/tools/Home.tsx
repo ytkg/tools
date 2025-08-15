@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import PageMeta from '../components/PageMeta';
 import { toolList } from '../data/tools';
 import { Card, CardActionArea, CardContent, Typography, Chip, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
 
   return (
     <Box>
+      <PageMeta title="" description="A collection of useful developer tools like JSON formatter, Base64 converter, and more." />
       <Typography variant="h4" component="h1" gutterBottom>
         Tools
       </Typography>
