@@ -13,15 +13,15 @@ import JwtDecoder from './tools/JwtDecoder';
 import HashGenerator from './tools/HashGenerator';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const darkTheme = createTheme({
+const lightTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
   },
 });
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
