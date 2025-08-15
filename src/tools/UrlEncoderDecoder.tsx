@@ -11,8 +11,12 @@ const UrlEncoderDecoder: React.FC = () => {
       const encoded = encodeURIComponent(inputText);
       setOutputText(encoded);
       setError('');
-    } catch (e: any) {
-      setError('Error encoding: ' + e.message);
+    } catch (e) {
+      if (e instanceof Error) {
+        setError('Error encoding: ' + e.message);
+      } else {
+        setError('An unknown encoding error occurred.');
+      }
       setOutputText('');
     }
   };
@@ -22,8 +26,12 @@ const UrlEncoderDecoder: React.FC = () => {
       const decoded = decodeURIComponent(inputText);
       setOutputText(decoded);
       setError('');
-    } catch (e: any) {
-      setError('Invalid URL encoding: ' + e.message);
+    } catch (e) {
+      if (e instanceof Error) {
+        setError('Invalid URL encoding: ' + e.message);
+      } else {
+        setError('An unknown decoding error occurred.');
+      }
       setOutputText('');
     }
   };

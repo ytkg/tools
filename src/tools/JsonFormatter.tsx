@@ -12,8 +12,12 @@ const JsonFormatter: React.FC = () => {
       const formatted = JSON.stringify(parsed, null, 2);
       setOutputJson(formatted);
       setError('');
-    } catch (e: any) {
-      setError('Invalid JSON: ' + e.message);
+    } catch (e) {
+      if (e instanceof Error) {
+        setError('Invalid JSON: ' + e.message);
+      } else {
+        setError('An unknown error occurred while parsing JSON.');
+      }
       setOutputJson('');
     }
   };

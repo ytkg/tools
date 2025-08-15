@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { TextField, Paper, Grid, Typography, Alert } from '@mui/material';
-import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { TextField, Paper, Grid, Typography } from '@mui/material';
+import type { JwtPayload } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 interface DecodedJwt {
   header: object;
@@ -18,8 +19,12 @@ const JwtDecoder: React.FC = () => {
       const payload = jwtDecode<JwtPayload>(token);
       setError('');
       return { header, payload };
-    } catch (e: any) {
-      setError('Invalid JWT Token: ' + e.message);
+    } catch (e) {
+      if (e instanceof Error) {
+        setError('Invalid JWT Token: ' + e.message);
+      } else {
+        setError('An unknown error occurred.');
+      }
       return null;
     }
   }, [token]);

@@ -11,8 +11,12 @@ const Base64Converter: React.FC = () => {
       const encoded = btoa(inputText);
       setOutputText(encoded);
       setError('');
-    } catch (e: any) {
-      setError('Error encoding: ' + e.message);
+    } catch (e) {
+      if (e instanceof Error) {
+        setError('Error encoding: ' + e.message);
+      } else {
+        setError('An unknown encoding error occurred.');
+      }
       setOutputText('');
     }
   };
@@ -22,8 +26,12 @@ const Base64Converter: React.FC = () => {
       const decoded = atob(inputText);
       setOutputText(decoded);
       setError('');
-    } catch (e: any) {
-      setError('Invalid Base64 string: ' + e.message);
+    } catch (e) {
+      if (e instanceof Error) {
+        setError('Invalid Base64 string: ' + e.message);
+      } else {
+        setError('An unknown decoding error occurred.');
+      }
       setOutputText('');
     }
   };

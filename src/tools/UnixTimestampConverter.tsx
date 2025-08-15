@@ -33,7 +33,7 @@ const UnixTimestampConverter: React.FC = () => {
         throw new Error("Invalid date format");
       }
       setTimestampOutput(String(Math.floor(date.getTime() / 1000)));
-    } catch (e) {
+    } catch {
       setTimestampOutput('Invalid Date');
     }
   };
