@@ -4,7 +4,7 @@ import IpAddressViewer from '../IpAddressViewer';
 
 global.fetch = vi.fn();
 
-const createFetchResponse = (data: any) => {
+const createFetchResponse = (data: unknown) => {
     return { json: () => new Promise((resolve) => resolve(data)), ok: true };
 };
 
@@ -15,7 +15,8 @@ describe('IpAddressViewer', () => {
             city: 'Test City',
             country_name: 'Test Country',
         };
-        (fetch as any).mockResolvedValue(createFetchResponse(mockIpInfo));
+        const fetchMock = fetch as vi.Mock;
+        fetchMock.mockResolvedValue(createFetchResponse(mockIpInfo));
 
         render(<IpAddressViewer />);
 
