@@ -76,6 +76,7 @@ export default function ResponsiveLayout() {
                             component={Link}
                             to={tool.path}
                             sx={{ minHeight: 48, px: 2.5 }}
+                            onClick={() => !isDesktop && handleDrawerToggle()}
                         >
                             <ListItemIcon sx={{ minWidth: 0, mr: 3, justifyContent: 'center' }}>
                                 {tool.icon}
@@ -99,12 +100,20 @@ export default function ResponsiveLayout() {
                 }}
             >
                 <Toolbar>
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="div"
+                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none' } }}
+                    >
+                        Developer Tools
+                    </Typography>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
-                        edge="start"
+                        edge="end"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
+                        sx={{ display: { sm: 'none' } }}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -116,6 +125,7 @@ export default function ResponsiveLayout() {
                 aria-label="mailbox folders"
             >
                 <Drawer
+                    anchor="right"
                     variant={isDesktop ? 'permanent' : 'temporary'}
                     open={isDesktop ? true : mobileOpen}
                     onClose={handleDrawerToggle}
