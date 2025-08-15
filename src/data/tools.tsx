@@ -8,12 +8,14 @@ import PaletteIcon from '@mui/icons-material/Palette';
 import ArticleIcon from '@mui/icons-material/Article';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import DialpadIcon from '@mui/icons-material/Dialpad';
 
 export const toolList = [
     { text: 'JSON Formatter', path: '/json-formatter', icon: <DataObjectIcon />, description: 'Format and validate JSON documents.', tags: ['formatter', 'json'] },
     { text: 'Base64 Converter', path: '/base64-converter', icon: <CodeIcon />, description: 'Encode and decode Base64 strings.', tags: ['encoder', 'decoder', 'converter'] },
     { text: 'Character Counter', path: '/character-counter', icon: <TextFieldsIcon />, description: 'Count characters, words, and lines in text.', tags: ['counter', 'text'] },
     { text: 'Case Converter', path: '/case-converter', icon: <TextFieldsIcon />, description: 'Convert text between different casings (camel, snake, etc.).', tags: ['converter', 'text', 'case'] },
+    { text: 'Number Base Converter', path: '/number-base-converter', icon: <DialpadIcon />, description: 'Convert numbers between decimal, hexadecimal, binary, and octal.', tags: ['converter', 'number', 'binary', 'hex'] },
     { text: 'QR Code Generator', path: '/qr-code-generator', icon: <QrCodeIcon />, description: 'Generate QR codes from text or URLs.', tags: ['generator', 'image'] },
     { text: 'Unix Timestamp', path: '/unix-timestamp', icon: <TimerIcon />, description: 'Convert between Unix timestamps and human-readable dates.', tags: ['converter', 'time'] },
     { text: 'URL Encoder/Decoder', path: '/url-encoder-decoder', icon: <LinkIcon />, description: 'Encode and decode URL components.', tags: ['encoder', 'decoder', 'url'] },
