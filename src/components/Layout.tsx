@@ -125,7 +125,7 @@ export default function ResponsiveLayout() {
                 aria-label="mailbox folders"
             >
                 <Drawer
-                    anchor="right"
+                    anchor={isDesktop ? 'left' : 'right'}
                     variant={isDesktop ? 'permanent' : 'temporary'}
                     open={isDesktop ? true : mobileOpen}
                     onClose={handleDrawerToggle}
