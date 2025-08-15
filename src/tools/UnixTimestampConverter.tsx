@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import PageMeta from '../components/PageMeta';
 import { TextField, Button, Typography, Paper, Box } from '@mui/material';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 const UnixTimestampConverter: React.FC = () => {
   const [currentTimestamp, setCurrentTimestamp] = useState(Math.floor(Date.now() / 1000));
@@ -40,12 +40,10 @@ const UnixTimestampConverter: React.FC = () => {
   };
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="Unix Timestamp Converter" description="Convert between Unix timestamps and human-readable dates." />
-      <Typography variant="h4" component="h1" gutterBottom>
-        Unix Timestamp Converter
-      </Typography>
-
+    <ToolPageLayout
+      title="Unix Timestamp Converter"
+      description="Convert between Unix timestamps and human-readable dates."
+    >
       <Paper sx={{ p: 2, mb: 2, textAlign: 'center' }}>
         <Typography variant="h6">Current Timestamp</Typography>
         <Typography fontFamily="monospace">{currentTimestamp}</Typography>
@@ -81,7 +79,7 @@ const UnixTimestampConverter: React.FC = () => {
           <Typography data-testid="date-to-ts-output" sx={{ mt: 2, fontFamily: 'monospace', minHeight: '2em' }}>{timestampOutput}</Typography>
         </Box>
       </Box>
-    </Paper>
+    </ToolPageLayout>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import PageMeta from '../components/PageMeta';
 import { TextField, Typography, Paper, Box } from '@mui/material';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 const CharacterCounter: React.FC = () => {
   const [text, setText] = useState('');
@@ -14,11 +14,10 @@ const CharacterCounter: React.FC = () => {
   }, [text]);
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="Character Counter" description="Count characters, words, and lines in text." />
-      <Typography variant="h4" component="h1" gutterBottom>
-        Character Counter
-      </Typography>
+    <ToolPageLayout
+      title="Character Counter"
+      description="Count characters, words, and lines in text."
+    >
       <TextField
         label="Enter your text here"
         multiline
@@ -47,7 +46,7 @@ const CharacterCounter: React.FC = () => {
           <Typography variant="body2">Lines</Typography>
         </Paper>
       </Box>
-    </Paper>
+    </ToolPageLayout>
   );
 };
 

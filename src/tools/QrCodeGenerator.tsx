@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PageMeta from '../components/PageMeta';
 import { TextField, Typography, Paper, Slider, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
 import { QRCodeCanvas } from 'qrcode.react';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 const QrCodeGenerator: React.FC = () => {
   const [text, setText] = useState('https://github.com');
@@ -9,11 +9,10 @@ const QrCodeGenerator: React.FC = () => {
   const [level, setLevel] = useState<'L' | 'M' | 'Q' | 'H'>('M');
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="QR Code Generator" description="Generate QR codes from text or URLs." />
-      <Typography variant="h4" component="h1" gutterBottom>
-        QR Code Generator
-      </Typography>
+    <ToolPageLayout
+      title="QR Code Generator"
+      description="Generate QR codes from text or URLs."
+    >
       <Box sx={{ display: 'flex', gap: 3, flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ flexGrow: 1 }}>
           <TextField
@@ -61,7 +60,7 @@ const QrCodeGenerator: React.FC = () => {
           </Paper>
         </Box>
       </Box>
-    </Paper>
+    </ToolPageLayout>
   );
 };
 

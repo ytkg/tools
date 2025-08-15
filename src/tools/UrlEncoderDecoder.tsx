@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import PageMeta from '../components/PageMeta';
-import { TextField, Button, Typography, Paper, Box } from '@mui/material';
+import { TextField, Button, Box } from '@mui/material';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 const UrlEncoderDecoder: React.FC = () => {
   const [inputText, setInputText] = useState('');
@@ -44,11 +44,10 @@ const UrlEncoderDecoder: React.FC = () => {
   };
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="URL Encoder/Decoder" description="Encode and decode URL components." />
-      <Typography variant="h4" component="h1" gutterBottom>
-        URL Encoder / Decoder
-      </Typography>
+    <ToolPageLayout
+      title="URL Encoder/Decoder"
+      description="Encode and decode URL components."
+    >
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
@@ -88,7 +87,7 @@ const UrlEncoderDecoder: React.FC = () => {
           Clear
         </Button>
       </Box>
-    </Paper>
+    </ToolPageLayout>
   );
 };
 

@@ -5,7 +5,7 @@ import UrlEncoderDecoder from '../UrlEncoderDecoder';
 describe('UrlEncoderDecoder', () => {
   it('renders the component', () => {
     render(<UrlEncoderDecoder />);
-    expect(screen.getByText('URL Encoder / Decoder')).toBeInTheDocument();
+    expect(screen.getByText('URL Encoder/Decoder')).toBeInTheDocument();
   });
 
   it('encodes a URL component', () => {

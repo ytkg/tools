@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import PageMeta from '../components/PageMeta';
 import { TextField, Paper, Typography, Box } from '@mui/material';
 import type { JwtPayload } from 'jwt-decode';
 import { jwtDecode } from 'jwt-decode';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 interface DecodedJwt {
   header: object;
@@ -31,11 +31,10 @@ const JwtDecoder: React.FC = () => {
   }, [token]);
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="JWT Decoder" description="Decode JSON Web Tokens and view their contents." />
-      <Typography variant="h4" component="h1" gutterBottom>
-        JWT Decoder
-      </Typography>
+    <ToolPageLayout
+      title="JWT Decoder"
+      description="Decode JSON Web Tokens and view their contents."
+    >
       <TextField
         label="JWT Token"
         multiline
@@ -64,7 +63,7 @@ const JwtDecoder: React.FC = () => {
           </Box>
         </Box>
       )}
-    </Paper>
+    </ToolPageLayout>
   );
 };
 

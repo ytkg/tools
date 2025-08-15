@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PageMeta from '../components/PageMeta';
-import { TextField, Paper, Typography, Box } from '@mui/material';
+import { TextField, Paper, Box } from '@mui/material';
 import { marked } from 'marked';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 // Basic sanitization options
 marked.setOptions({
@@ -56,11 +56,10 @@ const MarkdownPreviewer: React.FC = () => {
   };
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="Markdown Previewer" description="Edit and preview Markdown text in real-time." />
-       <Typography variant="h4" component="h1" gutterBottom>
-        Markdown Previewer
-      </Typography>
+    <ToolPageLayout
+      title="Markdown Previewer"
+      description="Edit and preview Markdown text in real-time."
+    >
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
@@ -80,7 +79,7 @@ const MarkdownPreviewer: React.FC = () => {
           />
         </Box>
       </Box>
-    </Paper>
+    </ToolPageLayout>
   );
 };
 
