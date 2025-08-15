@@ -1,6 +1,10 @@
-import { styled } from '@mui/material/styles';
+import { useState } from 'react';
+import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
@@ -48,41 +52,89 @@ const navigationList = [
     ...toolList,
 ]
 
-export default function PermanentDrawerLayout() {
+export default function ResponsiveLayout() {
+    const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
+    const [mobileOpen, setMobileOpen] = useState(false);
+
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
+
+    const drawerContent = (
+        <div>
+            <DrawerHeader>
+                <Typography variant="h6" noWrap component="div">
+                    Developer Tools
+                </Typography>
+            </DrawerHeader>
+            <Divider />
+            <List>
+                {navigationList.map((tool) => (
+                    <ListItem key={tool.text} disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton
+                            component={Link}
+                            to={tool.path}
+                            sx={{ minHeight: 48, px: 2.5 }}
+                        >
+                            <ListItemIcon sx={{ minWidth: 0, mr: 3, justifyContent: 'center' }}>
+                                {tool.icon}
+                            </ListItemIcon>
+                            <ListItemText primary={tool.text} />
+                        </ListItemButton>
+                    </ListItem>
+                ))}
+            </List>
+        </div>
+    );
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" sx={{ ml: `${drawerWidth}px`, width: `calc(100% - ${drawerWidth}px)` }}>
+            <AppBar
+                position="fixed"
+                sx={{
+                    width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    ml: { sm: `${drawerWidth}px` },
+                }}
+            >
                 <Toolbar>
-                    {/* The AppBar is now just a container for the top bar content, title is in the drawer */}
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{ mr: 2, display: { sm: 'none' } }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
                 </Toolbar>
             </AppBar>
-            <Drawer variant="permanent">
-                <DrawerHeader>
-                    <Typography variant="h6" noWrap component="div">
-                        Developer Tools
-                    </Typography>
-                </DrawerHeader>
-                <Divider />
-                <List>
-                    {navigationList.map((tool) => (
-                        <ListItem key={tool.text} disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                component={Link}
-                                to={tool.path}
-                                sx={{ minHeight: 48, px: 2.5 }}
-                            >
-                                <ListItemIcon sx={{ minWidth: 0, mr: 3, justifyContent: 'center' }}>
-                                    {tool.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={tool.text} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List>
-            </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                <Toolbar /> {/* This is to offset the content below the AppBar */}
+            <Box
+                component="nav"
+                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                aria-label="mailbox folders"
+            >
+                <Drawer
+                    variant={isDesktop ? 'permanent' : 'temporary'}
+                    open={isDesktop ? true : mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        display: { xs: 'block', sm: 'block' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    }}
+                >
+                    {drawerContent}
+                </Drawer>
+            </Box>
+            <Box
+                component="main"
+                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+            >
+                <Toolbar />
                 <Outlet />
             </Box>
         </Box>
