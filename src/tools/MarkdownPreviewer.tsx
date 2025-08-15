@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { TextField, Paper, Grid, Typography } from '@mui/material';
+import { TextField, Paper, Typography, Box } from '@mui/material';
 import { marked } from 'marked';
 
 // Basic sanitization options
 marked.setOptions({
   gfm: true,
   breaks: true,
-  sanitize: true,
 });
 
 const initialMarkdown = `# Welcome to my Markdown Previewer!
@@ -60,8 +59,8 @@ const MarkdownPreviewer: React.FC = () => {
        <Typography variant="h4" component="h1" gutterBottom>
         Markdown Previewer
       </Typography>
-      <Grid container spacing={2}>
-        <Grid xs={12} md={6}>
+      <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
+        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
             label="Markdown Input"
             multiline
@@ -71,14 +70,14 @@ const MarkdownPreviewer: React.FC = () => {
             variant="outlined"
             fullWidth
           />
-        </Grid>
-        <Grid xs={12} md={6}>
+        </Box>
+        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <Paper
             sx={{ p: 2, height: '100%', overflowY: 'auto' }}
             dangerouslySetInnerHTML={getMarkdownText()}
           />
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Paper>
   );
 };

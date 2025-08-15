@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { TextField, Typography, Paper, Grid, Box } from '@mui/material';
+import { TextField, Typography, Paper, Box } from '@mui/material';
 
 // Basic color conversion functions
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
@@ -49,8 +49,8 @@ const ColorConverter: React.FC = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         Color Converter
       </Typography>
-      <Grid container spacing={3} alignItems="center">
-        <Grid xs={12} sm={4} md={3}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'wrap' }}>
+        <Box>
           <Box
             sx={{
               width: 100,
@@ -59,27 +59,24 @@ const ColorConverter: React.FC = () => {
               border: '1px solid grey',
               borderRadius: 1,
               cursor: 'pointer',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'
+              position: 'relative',
             }}
           >
              <input
                 type="color"
                 value={hex}
                 onChange={handleHexChange}
-                style={{ width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
+                style={{ width: '100%', height: '100%', opacity: 0, cursor: 'pointer', position: 'absolute' }}
               />
           </Box>
-        </Grid>
-        <Grid item xs={12} sm={8} md={9}>
+        </Box>
+        <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField
             label="HEX"
             value={hex}
             onChange={handleHexChange}
             variant="outlined"
             fullWidth
-            sx={{ mb: 2 }}
           />
           <TextField
             label="RGB"
@@ -88,8 +85,8 @@ const ColorConverter: React.FC = () => {
             variant="outlined"
             fullWidth
           />
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Paper>
   );
 };

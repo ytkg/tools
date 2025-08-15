@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, Typography, Paper } from '@mui/material';
+import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const JsonFormatter: React.FC = () => {
   const [inputJson, setInputJson] = useState('');
@@ -33,8 +33,8 @@ const JsonFormatter: React.FC = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         JSON Formatter
       </Typography>
-      <Grid container spacing={2}>
-        <Grid xs={12} md={6}>
+      <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
+        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
             label="Input JSON"
             multiline
@@ -46,8 +46,8 @@ const JsonFormatter: React.FC = () => {
             error={!!error}
             helperText={error}
           />
-        </Grid>
-        <Grid xs={12} md={6}>
+        </Box>
+        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
             label="Formatted JSON"
             multiline
@@ -59,8 +59,8 @@ const JsonFormatter: React.FC = () => {
             variant="outlined"
             fullWidth
           />
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
       <Box sx={{ mt: 2 }}>
         <Button variant="contained" onClick={handleFormat} sx={{ mr: 1 }}>
           Format

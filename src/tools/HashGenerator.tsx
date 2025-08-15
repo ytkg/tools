@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Paper, Typography, Grid, CircularProgress } from '@mui/material';
+import { TextField, Button, Paper, Typography, CircularProgress, Box } from '@mui/material';
 
 async function generateHash(algorithm: string, text: string): Promise<string> {
   const encoder = new TextEncoder();
@@ -41,25 +41,27 @@ const HashGenerator: React.FC = () => {
         fullWidth
         sx={{ mb: 2 }}
       />
-      <Button
-        variant="contained"
-        onClick={handleGenerate}
-        disabled={loading || !inputText}
-        startIcon={loading ? <CircularProgress size={20} /> : null}
-      >
-        {loading ? 'Generating...' : 'Generate Hashes'}
-      </Button>
+      <Box sx={{ mb: 2 }}>
+        <Button
+          variant="contained"
+          onClick={handleGenerate}
+          disabled={loading || !inputText}
+          startIcon={loading ? <CircularProgress size={20} /> : null}
+        >
+          {loading ? 'Generating...' : 'Generate Hashes'}
+        </Button>
+      </Box>
       {Object.keys(hashes).length > 0 && (
-        <Grid container spacing={2} sx={{ mt: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {Object.entries(hashes).map(([alg, hash]) => (
-            <Grid xs={12} key={alg}>
+            <Box key={alg}>
               <Typography variant="h6" component="h3">{alg}</Typography>
               <Paper component="pre" sx={{ p: 2, overflowX: 'auto', bgcolor: 'background.default', wordBreak: 'break-all' }}>
                 {hash}
               </Paper>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       )}
     </Paper>
   );

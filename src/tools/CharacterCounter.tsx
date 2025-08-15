@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { TextField, Typography, Paper, Grid } from '@mui/material';
+import { TextField, Typography, Paper, Box } from '@mui/material';
 
 const CharacterCounter: React.FC = () => {
   const [text, setText] = useState('');
@@ -27,32 +27,24 @@ const CharacterCounter: React.FC = () => {
         fullWidth
         sx={{ mb: 2 }}
       />
-      <Grid container spacing={2}>
-        <Grid xs={6} sm={3}>
-          <Paper sx={{ p: 2, textAlign: 'center' }}>
-            <Typography variant="h6">{stats.charactersWithSpaces}</Typography>
-            <Typography variant="body2">Characters (with spaces)</Typography>
-          </Paper>
-        </Grid>
-        <Grid xs={6} sm={3}>
-          <Paper sx={{ p: 2, textAlign: 'center' }}>
-            <Typography variant="h6">{stats.charactersWithoutSpaces}</Typography>
-            <Typography variant="body2">Characters (no spaces)</Typography>
-          </Paper>
-        </Grid>
-        <Grid xs={6} sm={3}>
-          <Paper sx={{ p: 2, textAlign: 'center' }}>
-            <Typography variant="h6">{stats.words}</Typography>
-            <Typography variant="body2">Words</Typography>
-          </Paper>
-        </Grid>
-        <Grid xs={6} sm={3}>
-          <Paper sx={{ p: 2, textAlign: 'center' }}>
-            <Typography variant="h6">{stats.lines}</Typography>
-            <Typography variant="body2">Lines</Typography>
-          </Paper>
-        </Grid>
-      </Grid>
+      <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+        <Paper sx={{ p: 2, textAlign: 'center', flexGrow: 1 }}>
+          <Typography variant="h6">{stats.charactersWithSpaces}</Typography>
+          <Typography variant="body2">Characters (with spaces)</Typography>
+        </Paper>
+        <Paper sx={{ p: 2, textAlign: 'center', flexGrow: 1 }}>
+          <Typography variant="h6">{stats.charactersWithoutSpaces}</Typography>
+          <Typography variant="body2">Characters (no spaces)</Typography>
+        </Paper>
+        <Paper sx={{ p: 2, textAlign: 'center', flexGrow: 1 }}>
+          <Typography variant="h6">{stats.words}</Typography>
+          <Typography variant="body2">Words</Typography>
+        </Paper>
+        <Paper sx={{ p: 2, textAlign: 'center', flexGrow: 1 }}>
+          <Typography variant="h6">{stats.lines}</Typography>
+          <Typography variant="body2">Lines</Typography>
+        </Paper>
+      </Box>
     </Paper>
   );
 };

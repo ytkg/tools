@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Typography, Paper, Grid, Slider, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { TextField, Typography, Paper, Slider, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
 import { QRCodeCanvas } from 'qrcode.react';
 
 const QrCodeGenerator: React.FC = () => {
@@ -12,8 +12,8 @@ const QrCodeGenerator: React.FC = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         QR Code Generator
       </Typography>
-      <Grid container spacing={3}>
-        <Grid xs={12} md={6}>
+      <Box sx={{ display: 'flex', gap: 3, flexDirection: { xs: 'column', md: 'row' } }}>
+        <Box sx={{ flexGrow: 1 }}>
           <TextField
             label="Text to encode"
             value={text}
@@ -48,8 +48,8 @@ const QrCodeGenerator: React.FC = () => {
               <MenuItem value="H">High (H)</MenuItem>
             </Select>
           </FormControl>
-        </Grid>
-        <Grid xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2 }}>
           <Paper sx={{ p: 2, display: 'inline-block' }}>
             <QRCodeCanvas
               value={text}
@@ -57,8 +57,8 @@ const QrCodeGenerator: React.FC = () => {
               level={level}
             />
           </Paper>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Paper>
   );
 };

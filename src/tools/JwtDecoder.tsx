@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { TextField, Paper, Grid, Typography } from '@mui/material';
+import { TextField, Paper, Typography, Box } from '@mui/material';
 import type { JwtPayload } from 'jwt-decode';
 import { jwtDecode } from 'jwt-decode';
 
@@ -47,20 +47,20 @@ const JwtDecoder: React.FC = () => {
         helperText={error}
       />
       {decodedToken && (
-        <Grid container spacing={2}>
-          <Grid xs={12} md={6}>
+        <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
+          <Box sx={{ width: { xs: '100%', md: '50%' } }}>
             <Typography variant="h6" gutterBottom>Header</Typography>
             <Paper data-testid="jwt-header" component="pre" sx={{ p: 2, overflowX: 'auto', bgcolor: 'background.default' }}>
               {JSON.stringify(decodedToken.header, null, 2)}
             </Paper>
-          </Grid>
-          <Grid xs={12} md={6}>
+          </Box>
+          <Box sx={{ width: { xs: '100%', md: '50%' } }}>
             <Typography variant="h6" gutterBottom>Payload</Typography>
             <Paper data-testid="jwt-payload" component="pre" sx={{ p: 2, overflowX: 'auto', bgcolor: 'background.default' }}>
               {JSON.stringify(decodedToken.payload, null, 2)}
             </Paper>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       )}
     </Paper>
   );

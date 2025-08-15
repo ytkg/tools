@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { toolList } from '../components/Layout';
-import { Grid, Card, CardActionArea, CardContent, Typography, Chip, Box } from '@mui/material';
+import { toolList } from '../data/tools';
+import { Card, CardActionArea, CardContent, Typography, Chip, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
@@ -43,9 +43,9 @@ const Home: React.FC = () => {
           />
         ))}
       </Box>
-      <Grid container spacing={3}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
         {filteredTools.map(tool => (
-          <Grid item xs={12} sm={6} md={4} key={tool.path}>
+          <Box key={tool.path} sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', md: 'calc(33.33% - 16px)' } }}>
             <Card sx={{ height: '100%' }}>
               <CardActionArea component={Link} to={tool.path} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
                 <CardContent sx={{ flexGrow: 1 }}>
@@ -66,9 +66,9 @@ const Home: React.FC = () => {
                 </Box>
               </CardActionArea>
             </Card>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 };

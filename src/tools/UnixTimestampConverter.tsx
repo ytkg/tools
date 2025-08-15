@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Paper, Grid } from '@mui/material';
+import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const UnixTimestampConverter: React.FC = () => {
   const [currentTimestamp, setCurrentTimestamp] = useState(Math.floor(Date.now() / 1000));
@@ -49,8 +49,8 @@ const UnixTimestampConverter: React.FC = () => {
         <Typography fontFamily="monospace">{currentTimestamp}</Typography>
       </Paper>
 
-      <Grid container spacing={4}>
-        <Grid xs={12} md={6}>
+      <Box sx={{ display: 'flex', gap: 4, flexDirection: { xs: 'column', md: 'row' } }}>
+        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <Typography variant="h6" gutterBottom>Timestamp to Date</Typography>
           <TextField
             label="Unix Timestamp"
@@ -62,9 +62,9 @@ const UnixTimestampConverter: React.FC = () => {
           />
           <Button variant="contained" onClick={handleTimestampToDate}>Convert</Button>
           <Typography sx={{ mt: 2, fontFamily: 'monospace', minHeight: '2em' }}>{humanDateOutput}</Typography>
-        </Grid>
+        </Box>
 
-        <Grid xs={12} md={6}>
+        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <Typography variant="h6" gutterBottom>Date to Timestamp</Typography>
           <TextField
             label="Date/Time String"
@@ -77,8 +77,8 @@ const UnixTimestampConverter: React.FC = () => {
           />
           <Button variant="contained" onClick={handleDateToTimestamp}>Convert</Button>
           <Typography data-testid="date-to-ts-output" sx={{ mt: 2, fontFamily: 'monospace', minHeight: '2em' }}>{timestampOutput}</Typography>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Paper>
   );
 };

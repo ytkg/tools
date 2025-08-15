@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, Typography, Paper } from '@mui/material';
+import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const UrlEncoderDecoder: React.FC = () => {
   const [inputText, setInputText] = useState('');
@@ -47,8 +47,8 @@ const UrlEncoderDecoder: React.FC = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         URL Encoder / Decoder
       </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+      <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
+        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
             label="Input"
             multiline
@@ -60,8 +60,8 @@ const UrlEncoderDecoder: React.FC = () => {
             error={!!error}
             helperText={error}
           />
-        </Grid>
-        <Grid item xs={12} md={6}>
+        </Box>
+        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
             label="Output"
             multiline
@@ -73,8 +73,8 @@ const UrlEncoderDecoder: React.FC = () => {
             variant="outlined"
             fullWidth
           />
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
       <Box sx={{ mt: 2 }}>
         <Button variant="contained" onClick={handleEncode} sx={{ mr: 1 }}>
           Encode
