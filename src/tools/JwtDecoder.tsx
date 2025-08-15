@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Helmet } from '@dr.pogodin/react-helmet';
+import PageMeta from '../components/PageMeta';
 import { TextField, Paper, Typography, Box } from '@mui/material';
 import type { JwtPayload } from 'jwt-decode';
 import { jwtDecode } from 'jwt-decode';
@@ -32,10 +32,7 @@ const JwtDecoder: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
-      <Helmet>
-        <title>JWT Decoder | Developer Tools</title>
-        <meta name="description" content="Decode JSON Web Tokens and view their contents." />
-      </Helmet>
+      <PageMeta title="JWT Decoder" description="Decode JSON Web Tokens and view their contents." />
       <Typography variant="h4" component="h1" gutterBottom>
         JWT Decoder
       </Typography>

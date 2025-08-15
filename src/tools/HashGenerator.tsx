@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from '@dr.pogodin/react-helmet';
+import PageMeta from '../components/PageMeta';
 import { TextField, Button, Paper, Typography, CircularProgress, Box } from '@mui/material';
 
 async function generateHash(algorithm: string, text: string): Promise<string> {
@@ -29,10 +29,7 @@ const HashGenerator: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
-      <Helmet>
-        <title>Hash Generator | Developer Tools</title>
-        <meta name="description" content="Generate various hash digests (SHA-1, SHA-256, etc.)." />
-      </Helmet>
+      <PageMeta title="Hash Generator" description="Generate various hash digests (SHA-1, SHA-256, etc.)." />
       <Typography variant="h4" component="h1" gutterBottom>
         Hash Generator
       </Typography>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from '@dr.pogodin/react-helmet';
+import PageMeta from '../components/PageMeta';
 import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const UnixTimestampConverter: React.FC = () => {
@@ -41,10 +41,7 @@ const UnixTimestampConverter: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
-      <Helmet>
-        <title>Unix Timestamp Converter | Developer Tools</title>
-        <meta name="description" content="Convert between Unix timestamps and human-readable dates." />
-      </Helmet>
+      <PageMeta title="Unix Timestamp Converter" description="Convert between Unix timestamps and human-readable dates." />
       <Typography variant="h4" component="h1" gutterBottom>
         Unix Timestamp Converter
       </Typography>
