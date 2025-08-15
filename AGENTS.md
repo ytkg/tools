@@ -19,9 +19,34 @@ The codebase is organized as follows:
 *   `src/main.tsx`: The main entry point for the application.
 *   `src/App.tsx`: The root component that sets up the application's routing and theme.
 *   `src/components/`: This directory holds reusable components, such as the main `Layout.tsx`.
+*   `src/data/`: This directory holds shared data, such as the `toolList` array.
 *   `src/tools/`: This directory contains the individual tool components. Each file represents a single tool page.
 *   `src/tools/__tests__/`: Contains the test files for each tool.
 *   `public/`: Static assets that are served directly.
+
+## Development Conventions
+
+### Layout
+**IMPORTANT:** The Material-UI `Grid` component in this project's specific version (`@mui/material@^7.3.1`) is unstable and causes persistent build errors. **Do not use the `<Grid>` component.** For all layout needs, use the `<Box>` component with flexbox styling.
+
+Example:
+```tsx
+// Good:
+import { Box } from '@mui/material';
+
+<Box sx={{ display: 'flex', gap: 2 }}>
+  <Box sx={{ width: '50%' }}>Left</Box>
+  <Box sx={{ width: '50%' }}>Right</Box>
+</Box>
+
+// Bad:
+import Grid from '@mui/material/Grid'; // Or any other Grid import
+
+<Grid container spacing={2}>
+  <Grid xs={6}>Left</Grid>
+  <Grid xs={6}>Right</Grid>
+</Grid>
+```
 
 ## Development Scripts
 
