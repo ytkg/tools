@@ -3,7 +3,7 @@ import { vi } from 'vitest';
 import TimeZoneConverter from '../TimeZoneConverter';
 
 vi.mock('date-fns-tz', () => ({
-    utcToZonedTime: (date: Date, timeZone: string) => {
+    toZonedTime: (date: Date, timeZone: string) => {
         // Return a consistent date for testing, ignoring the actual timezone logic
         return new Date(`2024-01-01T12:00:00.000Z`);
     },

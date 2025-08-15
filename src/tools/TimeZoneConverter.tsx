@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Autocomplete, TextField, List, ListItem, ListItemText, IconButton, Typography, Box } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { format, utcToZonedTime } from 'date-fns-tz';
+import { format, toZonedTime } from 'date-fns-tz';
 import ToolPageLayout from '../components/ToolPageLayout';
 
 const timeZoneNames = Intl.supportedValuesOf('timeZone');
@@ -40,7 +40,7 @@ const TimeZoneConverter: React.FC = () => {
             />
             <List>
                 {selectedTimeZones.map(tz => {
-                    const zonedTime = utcToZonedTime(currentTime, tz);
+                    const zonedTime = toZonedTime(currentTime, tz);
                     const formattedTime = format(zonedTime, 'yyyy-MM-dd HH:mm:ss');
                     const offset = format(zonedTime, 'XXX');
 
