@@ -34,8 +34,12 @@ const IpAddressViewer: React.FC = () => {
                 }
                 const data: IpInfo = await response.json();
                 setIpInfo(data);
-            } catch (err: any) {
-                setError(err.message);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(err.message);
+                } else {
+                    setError('An unknown error occurred.');
+                }
             } finally {
                 setLoading(false);
             }

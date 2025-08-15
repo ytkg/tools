@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Autocomplete, TextField, List, ListItem, ListItemText, IconButton, Typography, Box } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { format } from 'date-fns';
-import { utcToZonedTime } from 'date-fns-tz';
+import { format, utcToZonedTime } from 'date-fns-tz';
 import ToolPageLayout from '../components/ToolPageLayout';
 
 const timeZoneNames = Intl.supportedValuesOf('timeZone');
@@ -18,7 +17,7 @@ const TimeZoneConverter: React.FC = () => {
         return () => clearInterval(timer);
     }, []);
 
-    const handleAddTimeZone = (event: any, newValue: string | null) => {
+    const handleAddTimeZone = (_event: React.SyntheticEvent, newValue: string | null) => {
         if (newValue && !selectedTimeZones.includes(newValue)) {
             setSelectedTimeZones([...selectedTimeZones, newValue]);
         }

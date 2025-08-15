@@ -110,3 +110,6 @@ To avoid proposing tools that already exist, please check the following list of 
 *   Markdown Previewer
 *   JWT Decoder
 *   Hash Generator
+*   Time Zone Converter
+*   IP Address Viewer
+*   Keyboard Event Viewer
