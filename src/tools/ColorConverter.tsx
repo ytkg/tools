@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { Helmet } from '@dr.pogodin/react-helmet';
 import { TextField, Typography, Paper, Box } from '@mui/material';
 
 // Basic color conversion functions
@@ -46,6 +47,10 @@ const ColorConverter: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <Helmet>
+        <title>Color Converter | Developer Tools</title>
+        <meta name="description" content="Convert between HEX and RGB color codes." />
+      </Helmet>
       <Typography variant="h4" component="h1" gutterBottom>
         Color Converter
       </Typography>

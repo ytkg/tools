@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from '@dr.pogodin/react-helmet';
 import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const Base64Converter: React.FC = () => {
@@ -44,6 +45,10 @@ const Base64Converter: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <Helmet>
+        <title>Base64 Converter | Developer Tools</title>
+        <meta name="description" content="Encode and decode Base64 strings." />
+      </Helmet>
       <Typography variant="h4" component="h1" gutterBottom>
         Base64 Converter
       </Typography>

@@ -1,15 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../test-utils';
 import { describe, it, expect } from 'vitest';
-import { MemoryRouter } from 'react-router-dom';
 import Home from '../Home';
 
 describe('Home', () => {
   it('renders the Tools heading', () => {
-    render(
-      <MemoryRouter>
-        <Home />
-      </MemoryRouter>
-    );
+    render(<Home />);
     expect(screen.getByText('Tools')).toBeInTheDocument();
   });
 });

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from '@dr.pogodin/react-helmet';
 import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const UrlEncoderDecoder: React.FC = () => {
@@ -44,6 +45,10 @@ const UrlEncoderDecoder: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <Helmet>
+        <title>URL Encoder/Decoder | Developer Tools</title>
+        <meta name="description" content="Encode and decode URL components." />
+      </Helmet>
       <Typography variant="h4" component="h1" gutterBottom>
         URL Encoder / Decoder
       </Typography>

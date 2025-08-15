@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from '@dr.pogodin/react-helmet';
 import { TextField, Button, Typography, Paper, Box } from '@mui/material';
 
 const JsonFormatter: React.FC = () => {
@@ -30,6 +31,10 @@ const JsonFormatter: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <Helmet>
+        <title>JSON Formatter | Developer Tools</title>
+        <meta name="description" content="Format and validate JSON documents." />
+      </Helmet>
       <Typography variant="h4" component="h1" gutterBottom>
         JSON Formatter
       </Typography>

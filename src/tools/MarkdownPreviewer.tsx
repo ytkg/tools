@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from '@dr.pogodin/react-helmet';
 import { TextField, Paper, Typography, Box } from '@mui/material';
 import { marked } from 'marked';
 
@@ -56,6 +57,10 @@ const MarkdownPreviewer: React.FC = () => {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <Helmet>
+        <title>Markdown Previewer | Developer Tools</title>
+        <meta name="description" content="Edit and preview Markdown text in real-time." />
+      </Helmet>
        <Typography variant="h4" component="h1" gutterBottom>
         Markdown Previewer
       </Typography>
