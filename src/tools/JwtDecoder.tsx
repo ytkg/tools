@@ -1,0 +1,64 @@
+import React, { useState, useMemo } from 'react';
+import { TextField, Paper, Grid, Typography, Alert } from '@mui/material';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+
+interface DecodedJwt {
+  header: object;
+  payload: JwtPayload;
+}
+
+const JwtDecoder: React.FC = () => {
+  const [token, setToken] = useState<string>('');
+  const [error, setError] = useState<string>('');
+
+  const decodedToken: DecodedJwt | null = useMemo(() => {
+    if (!token) return null;
+    try {
+      const header = jwtDecode(token, { header: true });
+      const payload = jwtDecode<JwtPayload>(token);
+      setError('');
+      return { header, payload };
+    } catch (e: any) {
+      setError('Invalid JWT Token: ' + e.message);
+      return null;
+    }
+  }, [token]);
+
+  return (
+    <Paper sx={{ p: 2 }}>
+      <Typography variant="h4" component="h1" gutterBottom>
+        JWT Decoder
+      </Typography>
+      <TextField
+        label="JWT Token"
+        multiline
+        rows={8}
+        value={token}
+        onChange={(e) => setToken(e.target.value)}
+        variant="outlined"
+        fullWidth
+        sx={{ mb: 2 }}
+        error={!!error}
+        helperText={error}
+      />
+      {decodedToken && (
+        <Grid container spacing={2}>
+          <Grid xs={12} md={6}>
+            <Typography variant="h6" gutterBottom>Header</Typography>
+            <Paper data-testid="jwt-header" component="pre" sx={{ p: 2, overflowX: 'auto', bgcolor: 'background.default' }}>
+              {JSON.stringify(decodedToken.header, null, 2)}
+            </Paper>
+          </Grid>
+          <Grid xs={12} md={6}>
+            <Typography variant="h6" gutterBottom>Payload</Typography>
+            <Paper data-testid="jwt-payload" component="pre" sx={{ p: 2, overflowX: 'auto', bgcolor: 'background.default' }}>
+              {JSON.stringify(decodedToken.payload, null, 2)}
+            </Paper>
+          </Grid>
+        </Grid>
+      )}
+    </Paper>
+  );
+};
+
+export default JwtDecoder;
