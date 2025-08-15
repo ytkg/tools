@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '../../test-utils';
+import { render, screen, fireEvent } from '../../test-utils';
 import { describe, it, expect } from 'vitest';
 import HashGenerator from '../HashGenerator';
 
