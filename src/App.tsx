@@ -4,6 +4,7 @@ import Home from './tools/Home';
 import JsonFormatter from './tools/JsonFormatter';
 import Base64Converter from './tools/Base64Converter';
 import CharacterCounter from './tools/CharacterCounter';
+import CaseConverter from './tools/CaseConverter';
 import QrCodeGenerator from './tools/QrCodeGenerator';
 import UnixTimestampConverter from './tools/UnixTimestampConverter';
 import UrlEncoderDecoder from './tools/UrlEncoderDecoder';
@@ -29,6 +30,7 @@ function App() {
             <Route path="json-formatter" element={<JsonFormatter />} />
             <Route path="base64-converter" element={<Base64Converter />} />
             <Route path="character-counter" element={<CharacterCounter />} />
+            <Route path="case-converter" element={<CaseConverter />} />
             <Route path="qr-code-generator" element={<QrCodeGenerator />} />
             <Route path="unix-timestamp" element={<UnixTimestampConverter />} />
             <Route path="url-encoder-decoder" element={<UrlEncoderDecoder />} />
