@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import PageMeta from '../components/PageMeta';
-import { TextField, Button, Typography, Paper, Box } from '@mui/material';
+import { TextField, Button, Box } from '@mui/material';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 const JsonFormatter: React.FC = () => {
   const [inputJson, setInputJson] = useState('');
@@ -30,11 +30,10 @@ const JsonFormatter: React.FC = () => {
   };
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="JSON Formatter" description="Format and validate JSON documents." />
-      <Typography variant="h4" component="h1" gutterBottom>
-        JSON Formatter
-      </Typography>
+    <ToolPageLayout
+      title="JSON Formatter"
+      description="Format and validate JSON documents."
+    >
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
@@ -71,7 +70,7 @@ const JsonFormatter: React.FC = () => {
           Clear
         </Button>
       </Box>
-    </Paper>
+    </ToolPageLayout>
   );
 };
 

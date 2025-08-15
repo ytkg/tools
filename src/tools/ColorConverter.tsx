@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import PageMeta from '../components/PageMeta';
-import { TextField, Typography, Paper, Box } from '@mui/material';
+import { TextField, Box } from '@mui/material';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 // Basic color conversion functions
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
@@ -46,11 +46,10 @@ const ColorConverter: React.FC = () => {
   };
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="Color Converter" description="Convert between HEX and RGB color codes." />
-      <Typography variant="h4" component="h1" gutterBottom>
-        Color Converter
-      </Typography>
+    <ToolPageLayout
+      title="Color Converter"
+      description="Convert between HEX and RGB color codes."
+    >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'wrap' }}>
         <Box>
           <Box
@@ -89,7 +88,7 @@ const ColorConverter: React.FC = () => {
           />
         </Box>
       </Box>
-    </Paper>
+    </ToolPageLayout>
   );
 };
 

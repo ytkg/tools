@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import PageMeta from '../components/PageMeta';
 import { TextField, Button, Paper, Typography, CircularProgress, Box } from '@mui/material';
+import ToolPageLayout from '../components/ToolPageLayout';
 
 async function generateHash(algorithm: string, text: string): Promise<string> {
   const encoder = new TextEncoder();
@@ -28,11 +28,10 @@ const HashGenerator: React.FC = () => {
   };
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <PageMeta title="Hash Generator" description="Generate various hash digests (SHA-1, SHA-256, etc.)." />
-      <Typography variant="h4" component="h1" gutterBottom>
-        Hash Generator
-      </Typography>
+    <ToolPageLayout
+      title="Hash Generator"
+      description="Generate various hash digests (SHA-1, SHA-256, etc.)."
+    >
       <TextField
         label="Input Text"
         multiline
@@ -65,7 +64,7 @@ const HashGenerator: React.FC = () => {
           ))}
         </Box>
       )}
-    </Paper>
+    </ToolPageLayout>
   );
 };
 
