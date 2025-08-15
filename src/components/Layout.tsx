@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { styled, useTheme, Theme } from '@mui/material/styles';
-import { CSSObject } from '@mui/styled-engine';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
@@ -33,7 +32,7 @@ import FingerprintIcon from '@mui/icons-material/Fingerprint';
 
 const drawerWidth = 240;
 
-const openedMixin = (theme: Theme): CSSObject => ({
+const openedMixin = (theme: Theme) => ({
     width: drawerWidth,
     transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
@@ -42,7 +41,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
     overflowX: 'hidden',
 });
 
-const closedMixin = (theme: Theme): CSSObject => ({
+const closedMixin = (theme: Theme) => ({
     transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
