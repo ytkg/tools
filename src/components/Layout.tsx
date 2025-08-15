@@ -76,6 +76,7 @@ export default function ResponsiveLayout() {
                             component={Link}
                             to={tool.path}
                             sx={{ minHeight: 48, px: 2.5 }}
+                            onClick={() => !isDesktop && handleDrawerToggle()}
                         >
                             <ListItemIcon sx={{ minWidth: 0, mr: 3, justifyContent: 'center' }}>
                                 {tool.icon}
