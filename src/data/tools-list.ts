@@ -12,4 +12,8 @@ export const toolList = [
     { text: 'Time Zone Converter', path: '/time-zone-converter', description: 'Compare and check the time in multiple cities around the world.', tags: ['converter', 'time', 'timezone'] },
     { text: 'IP Address Viewer', path: '/ip-address-viewer', description: 'Display your public IP address and browser information.', tags: ['network', 'ip', 'info'] },
     { text: 'Keyboard Event Viewer', path: '/keyboard-event-viewer', description: 'Display information about pressed keyboard keys.', tags: ['keyboard', 'event', 'developer'] },
+    { text: 'Unit Converter', path: '/unit-converter', description: 'Convert common units of length, weight, and temperature.', tags: ['converter', 'unit'] },
+    { text: 'UUID/GUID Generator', path: '/uuid-generator', description: 'Generate v1 or v4 UUIDs.', tags: ['generator', 'uuid', 'id'] },
+    { text: 'Password Generator', path: '/password-generator', description: 'Generate strong, random passwords.', tags: ['generator', 'password', 'security'] },
+    { text: 'Image to Base64', path: '/image-to-base64', description: 'Convert image files to Base64 strings.', tags: ['converter', 'image', 'base64'] },
 ];

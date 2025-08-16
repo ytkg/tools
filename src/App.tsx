@@ -14,6 +14,10 @@ import HashGenerator from './tools/HashGenerator';
 import TimeZoneConverter from './tools/TimeZoneConverter';
 import IpAddressViewer from './tools/IpAddressViewer';
 import KeyboardEventViewer from './tools/KeyboardEventViewer';
+import UnitConverter from './tools/UnitConverter';
+import UuidGenerator from './tools/UuidGenerator';
+import PasswordGenerator from './tools/PasswordGenerator';
+import ImageToBase64 from './tools/ImageToBase64';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const lightTheme = createTheme({
@@ -42,6 +46,10 @@ function App() {
             <Route path="time-zone-converter" element={<TimeZoneConverter />} />
             <Route path="ip-address-viewer" element={<IpAddressViewer />} />
             <Route path="keyboard-event-viewer" element={<KeyboardEventViewer />} />
+            <Route path="unit-converter" element={<UnitConverter />} />
+            <Route path="uuid-generator" element={<UuidGenerator />} />
+            <Route path="password-generator" element={<PasswordGenerator />} />
+            <Route path="image-to-base64" element={<ImageToBase64 />} />
             {/* Redirect any other path to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>

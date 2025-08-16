@@ -12,6 +12,10 @@ import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import PublicIcon from '@mui/icons-material/Public';
 import HttpIcon from '@mui/icons-material/Http';
 import KeyboardIcon from '@mui/icons-material/Keyboard';
+import SquareFootIcon from '@mui/icons-material/SquareFoot';
+import TagIcon from '@mui/icons-material/Tag';
+import PasswordIcon from '@mui/icons-material/Password';
+import ImageIcon from '@mui/icons-material/Image';
 import { toolList as toolsData } from './tools-list';
 
 const icons: { [key: string]: React.ReactNode } = {
@@ -28,6 +32,10 @@ const icons: { [key: string]: React.ReactNode } = {
     '/time-zone-converter': <PublicIcon />,
     '/ip-address-viewer': <HttpIcon />,
     '/keyboard-event-viewer': <KeyboardIcon />,
+    '/unit-converter': <SquareFootIcon />,
+    '/uuid-generator': <TagIcon />,
+    '/password-generator': <PasswordIcon />,
+    '/image-to-base64': <ImageIcon />,
 };
 
 export const toolList = toolsData.map(tool => ({
