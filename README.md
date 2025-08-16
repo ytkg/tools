@@ -1,69 +1,60 @@
-# React + TypeScript + Vite
+# DevTools - 開発者向けツールコレクション
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このプロジェクトは、開発者向けの便利なウェブツール集を提供するウェブアプリケーションです。
 
-Currently, two official plugins are available:
+## ✨ 機能 (利用可能なツール)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+現在、以下のツールが利用可能です。
 
-## Expanding the ESLint configuration
+*   JSON フォーマッタ
+*   Base64 エンコーダ/デコーダ
+*   文字数カウンター
+*   QRコードジェネレータ
+*   Unixタイムスタンプコンバータ
+*   URL エンコーダ/デコーダ
+*   カラーコンバータ
+*   Markdown プレビューア
+*   JWT デコーダ
+*   ハッシュジェネレータ
+*   タイムゾーンコンバータ
+*   IPアドレスビューア
+*   キーボードイベントビューア
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ 技術スタック
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+このプロジェクトは、以下の技術を使用して構築されています。
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+*   **フレームワーク/ツール:** React, TypeScript, Vite
+*   **UIライブラリ:** Material-UI (MUI)
+*   **ルーティング:** `react-router-dom`
+*   **リンティング:** ESLint
+*   **テスティング:** Vitest, React Testing Library
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 ローカルでの実行方法
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  **リポジトリをクローンします:**
+    ```bash
+    git clone <repository-url>
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  **依存関係をインストールします:**
+    ```bash
+    npm install
+    ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  **開発サーバーを起動します:**
+    ```bash
+    npm run dev
+    ```
+    ブラウザで `http://localhost:5173` (デフォルト) を開いてください。
+
+## 📜 利用可能なスクリプト
+
+このプロジェクトでは、以下のスクリプトが利用可能です。
+
+*   `npm run dev`: 開発サーバーを起動します。
+*   `npm run build`: プロダクション用にアプリケーションをビルドします。
+*   `npm run lint`: ESLint を実行してコードをチェックします。
+*   `npm run test`: Vitest を使用してテストを実行します。
+*   `npm run preview`: プロダクションビルドをローカルでプレビューします。
+*   `npm run check`: `lint`, `test`, `build` を順番に実行します。コミット前に実行することが推奨されます。
