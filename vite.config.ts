@@ -2,11 +2,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import viteSitemap from 'vite-plugin-sitemap'
-import { toolList } from './src/data/tools-list'
-
-interface Tool {
-  path: string;
-}
+import { toolsData } from './src/tools/data'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,7 +10,7 @@ export default defineConfig({
     react(),
     viteSitemap({
       hostname: 'https://tools.takagi.dev',
-      dynamicRoutes: toolList.map((tool: Tool) => tool.path),
+      dynamicRoutes: toolsData.map((tool) => `/${tool.path}`),
       exclude: ['/404'],
     }),
   ],
