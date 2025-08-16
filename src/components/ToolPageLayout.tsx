@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Typography } from '@mui/material';
+import { Paper, Typography, Box } from '@mui/material';
 import PageMeta from './PageMeta';
 
 interface ToolPageLayoutProps {
@@ -15,7 +15,26 @@ const ToolPageLayout: React.FC<ToolPageLayoutProps> = ({ title, description, chi
       <Typography variant="h4" component="h1" gutterBottom>
         {title}
       </Typography>
-      {children}
+      <Box
+        sx={{
+          // Apply styles to children elements to prevent overflow
+          '& textarea': {
+            whiteSpace: 'pre-wrap',
+            wordBreak: 'break-all',
+          },
+          '& pre, & code': {
+            whiteSpace: 'pre-wrap',
+            wordBreak: 'break-all',
+          },
+          '& table': {
+            display: 'block',
+            overflowX: 'auto',
+            maxWidth: '100%',
+          },
+        }}
+      >
+        {children}
+      </Box>
     </Paper>
   );
 };
