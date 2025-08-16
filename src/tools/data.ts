@@ -84,4 +84,22 @@ export const toolsData: ToolData[] = [
     description: 'Display information about pressed keyboard keys.',
     tags: ['keyboard', 'event', 'developer'],
   },
+  {
+    path: 'lorem-ipsum-generator',
+    name: 'Lorem Ipsum Generator',
+    description: 'Generate dummy text for your designs.',
+    tags: ['generator', 'text', 'dummy'],
+  },
+  {
+    path: 'text-sorter',
+    name: 'Text Sorter',
+    description: 'Sort, reverse, and remove duplicate lines from text.',
+    tags: ['sorter', 'text', 'utils'],
+  },
+  {
+    path: 'slug-generator',
+    name: 'Slug Generator',
+    description: 'Convert text into a URL-friendly slug.',
+    tags: ['generator', 'text', 'url'],
+  },
 ];

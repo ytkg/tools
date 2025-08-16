@@ -1,5 +1,10 @@
 # AGENTS.md
 
+**IMPORTANT:** Before submitting any changes, you **MUST** run the all-in-one check script to ensure your changes do not break the build or tests.
+```bash
+npm run check
+```
+
 This document contains notes and instructions for AI agents working on this codebase.
 
 ## Project Overview
@@ -118,3 +123,6 @@ To avoid proposing tools that already exist, please check the following list of 
 *   Time Zone Converter
 *   IP Address Viewer
 *   Keyboard Event Viewer
+*   Lorem Ipsum Generator
+*   Text Sorter
+*   Slug Generator
