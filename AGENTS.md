@@ -17,11 +17,14 @@ This is a web application that provides a collection of useful developer tools. 
 The codebase is organized as follows:
 
 *   `src/main.tsx`: The main entry point for the application.
-*   `src/App.tsx`: The root component that sets up the application's routing and theme.
+*   `src/App.tsx`: The root component that dynamically sets up application routing.
 *   `src/components/`: This directory holds reusable components, such as the main `Layout.tsx`.
-*   `src/data/`: This directory holds the data that populates the tool navigation list. `tools-list.ts` contains the raw data (name, path, description), while `tools.tsx` adds the corresponding UI icon for each tool.
-*   `src/tools/`: This directory contains the individual tool components. Each file represents a single tool page.
-*   `src/tools/__tests__/`: Contains the test files for each tool.
+*   `src/data/`: This directory contains a compatibility layer (`tools.tsx`) that exports the tool list in a legacy format for some UI components. It should not be modified directly.
+*   `src/tools/`: This is the main directory for all developer tools.
+    *   `data.ts`: Contains the raw, serializable data for each tool (path, name, description, tags). This is the first place to add a new tool.
+    *   `index.tsx`: The single source of truth for tools. It imports the raw data from `data.ts`, combines it with the tool's React component and UI icon, and exports the final list of tools used by the application.
+    *   `[ToolName].tsx`: The individual tool components. Each file represents a single tool page.
+    *   `__tests__/`: Contains the test files for each tool.
 *   `public/`: Static assets that are served directly.
 
 ## Development Conventions
@@ -57,6 +60,7 @@ The following scripts are available in `package.json`:
 *   `npm run lint`: Runs the ESLint linter to check for code quality issues. Use `npm run lint -- --fix` to automatically correct issues.
 *   `npm test`: Runs the Vitest test suite.
 *   `npm run preview`: Starts a local server to preview the production build.
+*   `npm run check`: **MANDATORY PRE-SUBMISSION CHECK.** Runs `lint`, `test`, and `build` in sequence.
 
 ## Task Execution Procedure
 
@@ -69,25 +73,25 @@ Here is a typical workflow for completing a task in this repository.
     ```
 
 2.  **Understand the Codebase:**
-    *   Review `src/App.tsx` to understand routing and theme setup.
-    *   Review `src/components/Layout.tsx` to understand the main page structure.
+    *   Review `src/tools/index.tsx` to understand how tools are defined and registered.
+    *   Review `src/App.tsx` to understand how routing is dynamically generated.
     *   Examine the existing components in `src/tools/` as examples for new tools.
 
 3.  **Implement Changes:**
     *   Locate the relevant files for your task.
     *   If adding a new tool, follow these steps:
-        1. Create the new tool component file in `src/tools/`.
-        2. Add the new route in `src/App.tsx`.
-        3. Add the tool's metadata (text, path, description, tags) to the `toolList` array in `src/data/tools-list.ts`.
-        4. Import a suitable Material-UI icon and add it to the `icons` object in `src/data/tools.tsx`, using the new tool's path as the key.
+        1. Create the new tool component file (e.g., `src/tools/NewTool.tsx`).
+        2. Create a test file for the new component (e.g., `src/tools/__tests__/NewTool.test.tsx`).
+        3. Add the tool's metadata (path, name, description, tags) to the `toolsData` array in `src/tools/data.ts`.
+        4. In `src/tools/index.tsx`, import the new component and a suitable Material-UI icon, and add them to the `components` and `icons` objects, using the new tool's path as the key.
         5. **Important:** Remember to also update the "Available Tools" list at the end of this document.
 
 4.  **Lint, Test, and Build:**
-    Before finalizing your changes, run the all-in-one check script to ensure your code adheres to the project's style guidelines, that all tests pass, and that the project builds successfully.
+    **This step is not optional.** Before finalizing your changes, you **MUST** run the all-in-one check script. This ensures your code adheres to project standards, all tests pass, and the project builds successfully.
     ```bash
     npm run check
     ```
-    This command will run `lint`, `test`, and `build` in sequence. Fix any errors or warnings reported by any of these steps.
+    Fix any and all errors reported by this command before proceeding.
 
     **Important:** When adding new features (e.g., new components, new logic), you **must** add corresponding tests in the `src/tools/__tests__` directory to validate their functionality.
 
