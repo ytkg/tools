@@ -19,7 +19,7 @@ The codebase is organized as follows:
 *   `src/main.tsx`: The main entry point for the application.
 *   `src/App.tsx`: The root component that sets up the application's routing and theme.
 *   `src/components/`: This directory holds reusable components, such as the main `Layout.tsx`.
-*   `src/data/`: This directory holds shared data, such as the `toolList` array.
+*   `src/data/`: This directory holds the data that populates the tool navigation list. `tools-list.ts` contains the raw data (name, path, description), while `tools.tsx` adds the corresponding UI icon for each tool.
 *   `src/tools/`: This directory contains the individual tool components. Each file represents a single tool page.
 *   `src/tools/__tests__/`: Contains the test files for each tool.
 *   `public/`: Static assets that are served directly.
@@ -75,10 +75,12 @@ Here is a typical workflow for completing a task in this repository.
 
 3.  **Implement Changes:**
     *   Locate the relevant files for your task.
-    *   If adding a new tool, create a new component file in `src/tools/`.
-    *   Add the new route in `src/App.tsx`.
-    *   Add a link to the new tool in the navigation list in `src/components/Layout.tsx`.
-    *   **Important:** If you add a new tool, remember to update the "Available Tools" list at the end of this document.
+    *   If adding a new tool, follow these steps:
+        1. Create the new tool component file in `src/tools/`.
+        2. Add the new route in `src/App.tsx`.
+        3. Add the tool's metadata (text, path, description, tags) to the `toolList` array in `src/data/tools-list.ts`.
+        4. Import a suitable Material-UI icon and add it to the `icons` object in `src/data/tools.tsx`, using the new tool's path as the key.
+        5. **Important:** Remember to also update the "Available Tools" list at the end of this document.
 
 4.  **Lint, Test, and Build:**
     Before finalizing your changes, run the all-in-one check script to ensure your code adheres to the project's style guidelines, that all tests pass, and that the project builds successfully.
