@@ -102,4 +102,28 @@ export const toolsData: ToolData[] = [
     description: 'Convert text into a URL-friendly slug.',
     tags: ['generator', 'text', 'url'],
   },
+  {
+    path: 'unit-converter',
+    name: 'Unit Converter',
+    description: 'Convert units of length, weight, and temperature.',
+    tags: ['converter', 'math'],
+  },
+  {
+    path: 'uuid-generator',
+    name: 'UUID/GUID Generator',
+    description: 'Generate v4 UUIDs.',
+    tags: ['generator', 'id'],
+  },
+  {
+    path: 'password-generator',
+    name: 'Password Generator',
+    description: 'Generate strong, random passwords.',
+    tags: ['generator', 'security'],
+  },
+  {
+    path: 'image-to-base64-converter',
+    name: 'Image to Base64',
+    description: 'Convert image files to Base64 data URLs.',
+    tags: ['converter', 'image', 'base64'],
+  },
 ];
