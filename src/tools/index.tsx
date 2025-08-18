@@ -19,6 +19,10 @@ import KeyboardIcon from '@mui/icons-material/Keyboard';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import SortByAlphaIcon from '@mui/icons-material/SortByAlpha';
 import TransformIcon from '@mui/icons-material/Transform';
+import StraightenIcon from '@mui/icons-material/Straighten';
+import CasinoIcon from '@mui/icons-material/Casino';
+import PasswordIcon from '@mui/icons-material/Password';
+import ImageIcon from '@mui/icons-material/Image';
 
 // Tool Components
 import JsonFormatter from './JsonFormatter';
@@ -37,6 +41,10 @@ import KeyboardEventViewer from './KeyboardEventViewer';
 import LoremIpsumGenerator from './LoremIpsumGenerator';
 import TextSorter from './TextSorter';
 import SlugGenerator from './SlugGenerator';
+import UnitConverter from './UnitConverter';
+import UuidGenerator from './UuidGenerator';
+import PasswordGenerator from './PasswordGenerator';
+import ImageToBase64Converter from './ImageToBase64Converter';
 
 export interface Tool extends ToolData {
   icon: React.ReactNode;
@@ -60,6 +68,10 @@ const components: { [path: string]: React.ComponentType } = {
   'lorem-ipsum-generator': LoremIpsumGenerator,
   'text-sorter': TextSorter,
   'slug-generator': SlugGenerator,
+  'unit-converter': UnitConverter,
+  'uuid-generator': UuidGenerator,
+  'password-generator': PasswordGenerator,
+  'image-to-base64-converter': ImageToBase64Converter,
 };
 
 const icons: { [path:string]: React.ReactNode } = {
@@ -79,6 +91,10 @@ const icons: { [path:string]: React.ReactNode } = {
   'lorem-ipsum-generator': <FormatQuoteIcon />,
   'text-sorter': <SortByAlphaIcon />,
   'slug-generator': <TransformIcon />,
+  'unit-converter': <StraightenIcon />,
+  'uuid-generator': <CasinoIcon />,
+  'password-generator': <PasswordIcon />,
+  'image-to-base64-converter': <ImageIcon />,
 };
 
 export const tools: Tool[] = toolsData.map(tool => ({
