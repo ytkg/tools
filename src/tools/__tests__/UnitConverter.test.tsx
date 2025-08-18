@@ -68,4 +68,23 @@ describe('UnitConverter', () => {
 
     expect(resultInput).toHaveValue('0.3048');
   });
+
+  it('converts inches to centimeters', async () => {
+    render(<UnitConverter />);
+    const valueInput = screen.getByLabelText('Value');
+    const resultInput = screen.getByLabelText('Result');
+
+    // Change from unit to inches
+    fireEvent.mouseDown(screen.getAllByRole('combobox')[1]);
+    const fromInchOption = await screen.findByRole('option', { name: 'Inches' });
+    fireEvent.click(fromInchOption);
+
+    // Change to unit to centimeters
+    fireEvent.mouseDown(screen.getAllByRole('combobox')[2]);
+    const toCmOption = await screen.findByRole('option', { name: 'Centimeters' });
+    fireEvent.click(toCmOption);
+
+    fireEvent.change(valueInput, { target: { value: '10' } });
+    expect(resultInput).toHaveValue('25.4000');
+  });
 });

@@ -15,7 +15,7 @@ const charsets = {
   uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   lowercase: 'abcdefghijklmnopqrstuvwxyz',
   numbers: '0123456789',
-  symbols: '!@#$%^&*()_+~`|}{[]:;?><,./-=',
+  symbols: '!@#$%^&*()_+~|}{[]:;?><,./-=',
 };
 
 const PasswordGenerator: React.FC = () => {
@@ -30,29 +30,21 @@ const PasswordGenerator: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const generatePassword = useCallback(() => {
-    const activeOptions = Object.keys(options).filter(key => options[key as keyof typeof options]);
+    let charset = '';
+    if (options.uppercase) charset += charsets.uppercase;
+    if (options.lowercase) charset += charsets.lowercase;
+    if (options.numbers) charset += charsets.numbers;
+    if (options.symbols) charset += charsets.symbols;
 
-    if (activeOptions.length === 0) {
+    if (charset === '') {
       setPassword('');
       return;
     }
 
-    let guaranteedChars = '';
-    activeOptions.forEach(option => {
-      const currentCharset = charsets[option as keyof typeof charsets];
-      guaranteedChars += currentCharset.charAt(Math.floor(Math.random() * currentCharset.length));
-    });
-
-    const fullCharset = activeOptions.map(opt => charsets[opt as keyof typeof charsets]).join('');
-
-    let randomChars = '';
-    for (let i = guaranteedChars.length; i < length; i++) {
-      randomChars += fullCharset.charAt(Math.floor(Math.random() * fullCharset.length));
+    let newPassword = '';
+    for (let i = 0; i < length; i++) {
+      newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
     }
-
-    let newPassword = guaranteedChars + randomChars;
-    newPassword = newPassword.split('').sort(() => 0.5 - Math.random()).join('');
-
     setPassword(newPassword);
     setCopied(false);
   }, [length, options]);

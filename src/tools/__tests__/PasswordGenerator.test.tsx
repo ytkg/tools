@@ -50,8 +50,14 @@ describe('PasswordGenerator', () => {
     fireEvent.click(screen.getByLabelText('Include Lowercase Letters'));
     fireEvent.click(screen.getByLabelText('Include Numbers'));
 
+    const symbols = '!@#$%^&*()_+~|}{[]:;?><,./-=';
     const passwordInput = screen.getByRole('textbox');
-    expect(passwordInput.value).toMatch(/^[!@#$%^&*()_+~`|}{[\]:;?><,./-=]{16}$/);
+    const password = passwordInput.value;
+
+    expect(password).toHaveLength(16);
+    for (const char of password) {
+      expect(symbols).toContain(char);
+    }
   });
 
   it('copies the password to the clipboard and shows feedback', async () => {
