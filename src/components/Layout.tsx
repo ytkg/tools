@@ -53,7 +53,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const navigationList = (t: (key: string) => string) => [
     { text: t('layout.home'), path: '/', icon: <HomeIcon /> },
-    ...toolList.map(tool => ({...tool, text: t(`tools.${tool.path}.name`)}))
+    ...toolList.map(tool => ({...tool, text: t(`tools.${tool.path.substring(1)}.name`)}))
 ];
 
 export default function ResponsiveLayout() {
