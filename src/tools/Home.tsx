@@ -3,8 +3,10 @@ import PageMeta from '../components/PageMeta';
 import { toolList } from '../data/tools';
 import { Card, CardActionArea, CardContent, Typography, Chip, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Home: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   const allTags = useMemo(() => {
@@ -15,22 +17,36 @@ const Home: React.FC = () => {
     return Array.from(tags).sort();
   }, []);
 
+  const translatedToolList = useMemo(() => {
+    return toolList.map(tool => ({
+      ...tool,
+      text: t(`tools.${tool.path.substring(1)}.name`),
+      description: t(`tools.${tool.path.substring(1)}.description`),
+      tags: tool.tags.map(tag => t(`tags.${tag}`)),
+    }));
+  }, [t]);
+
   const filteredTools = useMemo(() => {
     if (!selectedTag) {
-      return toolList;
+      return translatedToolList;
     }
-    return toolList.filter(tool => tool.tags.includes(selectedTag));
-  }, [selectedTag]);
+    // Find original tools that have the selected tag
+    const originalFiltered = toolList.filter(tool => tool.tags.includes(selectedTag));
+    // Get their paths
+    const filteredPaths = originalFiltered.map(tool => tool.path);
+    // Return the translated tools that match the paths
+    return translatedToolList.filter(tool => filteredPaths.includes(tool.path));
+  }, [selectedTag, translatedToolList]);
 
   return (
     <Box>
-      <PageMeta title="" description="A collection of useful developer tools like JSON formatter, Base64 converter, and more." />
+      <PageMeta title="" description={t('home.meta_description')} />
       <Typography variant="h4" component="h1" gutterBottom>
-        Tools
+        {t('home.title')}
       </Typography>
       <Box sx={{ mb: 4 }}>
         <Chip
-          label="All"
+          label={t('home.all_tags')}
           onClick={() => setSelectedTag(null)}
           variant={!selectedTag ? 'filled' : 'outlined'}
           sx={{ mr: 1, mb: 1 }}
@@ -38,7 +54,7 @@ const Home: React.FC = () => {
         {allTags.map(tag => (
           <Chip
             key={tag}
-            label={tag}
+            label={t(`tags.${tag}`)}
             onClick={() => setSelectedTag(tag)}
             variant={selectedTag === tag ? 'filled' : 'outlined'}
             sx={{ mr: 1, mb: 1 }}
@@ -62,7 +78,7 @@ const Home: React.FC = () => {
                   </Typography>
                 </CardContent>
                  <Box sx={{ p: 2, pt: 0, alignSelf: 'flex-start' }}>
-                    {tool.tags.map(tag => (
+                    {tool.tags.map((tag: string) => (
                         <Chip key={tag} label={tag} size="small" sx={{ mr: 0.5, mb: 0.5 }} />
                     ))}
                 </Box>

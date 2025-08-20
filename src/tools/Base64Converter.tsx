@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 const Base64Converter: React.FC = () => {
+  const { t } = useTranslation();
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [error, setError] = useState('');
@@ -14,9 +16,9 @@ const Base64Converter: React.FC = () => {
       setError('');
     } catch (e) {
       if (e instanceof Error) {
-        setError('Error encoding: ' + e.message);
+        setError(t('tools.base64-converter.error_encoding', { message: e.message }));
       } else {
-        setError('An unknown encoding error occurred.');
+        setError(t('tools.base64-converter.error_unknown_encoding'));
       }
       setOutputText('');
     }
@@ -29,9 +31,9 @@ const Base64Converter: React.FC = () => {
       setError('');
     } catch (e) {
       if (e instanceof Error) {
-        setError('Invalid Base64 string: ' + e.message);
+        setError(t('tools.base64-converter.error_decoding', { message: e.message }));
       } else {
-        setError('An unknown decoding error occurred.');
+        setError(t('tools.base64-converter.error_unknown_decoding'));
       }
       setOutputText('');
     }
@@ -45,13 +47,13 @@ const Base64Converter: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="Base64 Converter"
-      description="Encode and decode Base64 strings."
+      title={t('tools.base64-converter.name')}
+      description={t('tools.base64-converter.description')}
     >
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
-            label="Input"
+            label={t('tools.base64-converter.inputLabel')}
             multiline
             rows={10}
             value={inputText}
@@ -64,7 +66,7 @@ const Base64Converter: React.FC = () => {
         </Box>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
-            label="Output"
+            label={t('tools.base64-converter.outputLabel')}
             multiline
             rows={10}
             value={outputText}
@@ -78,13 +80,13 @@ const Base64Converter: React.FC = () => {
       </Box>
       <Box sx={{ mt: 2 }}>
         <Button variant="contained" onClick={handleEncode} sx={{ mr: 1 }}>
-          Encode
+          {t('tools.base64-converter.encode_button')}
         </Button>
         <Button variant="contained" onClick={handleDecode} sx={{ mr: 1 }}>
-          Decode
+          {t('tools.base64-converter.decode_button')}
         </Button>
         <Button variant="outlined" onClick={handleClear}>
-          Clear
+          {t('tools.base64-converter.clear_button')}
         </Button>
       </Box>
     </ToolPageLayout>

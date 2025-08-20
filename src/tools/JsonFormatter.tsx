@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 const JsonFormatter: React.FC = () => {
+  const { t } = useTranslation();
   const [inputJson, setInputJson] = useState('');
   const [outputJson, setOutputJson] = useState('');
   const [error, setError] = useState('');
@@ -15,9 +17,9 @@ const JsonFormatter: React.FC = () => {
       setError('');
     } catch (e) {
       if (e instanceof Error) {
-        setError('Invalid JSON: ' + e.message);
+        setError(t('tools.json-formatter.error_invalid', { message: e.message }));
       } else {
-        setError('An unknown error occurred while parsing JSON.');
+        setError(t('tools.json-formatter.error_unknown'));
       }
       setOutputJson('');
     }
@@ -31,13 +33,13 @@ const JsonFormatter: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="JSON Formatter"
-      description="Format and validate JSON documents."
+      title={t('tools.json-formatter.name')}
+      description={t('tools.json-formatter.description')}
     >
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
-            label="Input JSON"
+            label={t('tools.json-formatter.input_label')}
             multiline
             rows={20}
             value={inputJson}
@@ -50,7 +52,7 @@ const JsonFormatter: React.FC = () => {
         </Box>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
-            label="Formatted JSON"
+            label={t('tools.json-formatter.output_label')}
             multiline
             rows={20}
             value={outputJson}
@@ -64,10 +66,10 @@ const JsonFormatter: React.FC = () => {
       </Box>
       <Box sx={{ mt: 2 }}>
         <Button variant="contained" onClick={handleFormat} sx={{ mr: 1 }}>
-          Format
+          {t('tools.json-formatter.format_button')}
         </Button>
         <Button variant="outlined" onClick={handleClear}>
-          Clear
+          {t('tools.json-formatter.clear_button')}
         </Button>
       </Box>
     </ToolPageLayout>

@@ -1,8 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { TextField, Typography, Paper, Box } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 const CharacterCounter: React.FC = () => {
+  const { t } = useTranslation();
   const [text, setText] = useState('');
 
   const stats = useMemo(() => {
@@ -15,11 +17,11 @@ const CharacterCounter: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="Character Counter"
-      description="Count characters, words, and lines in text."
+      title={t('tools.character-counter.name')}
+      description={t('tools.character-counter.description')}
     >
       <TextField
-        label="Enter your text here"
+        label={t('tools.character-counter.label')}
         multiline
         rows={10}
         value={text}
@@ -31,19 +33,19 @@ const CharacterCounter: React.FC = () => {
       <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
         <Paper sx={{ p: 2, textAlign: 'center', flexGrow: 1 }}>
           <Typography variant="h6">{stats.charactersWithSpaces}</Typography>
-          <Typography variant="body2">Characters (with spaces)</Typography>
+          <Typography variant="body2">{t('tools.character-counter.characters_with_spaces')}</Typography>
         </Paper>
         <Paper sx={{ p: 2, textAlign: 'center', flexGrow: 1 }}>
           <Typography variant="h6">{stats.charactersWithoutSpaces}</Typography>
-          <Typography variant="body2">Characters (no spaces)</Typography>
+          <Typography variant="body2">{t('tools.character-counter.characters_no_spaces')}</Typography>
         </Paper>
         <Paper sx={{ p: 2, textAlign: 'center', flexGrow: 1 }}>
           <Typography variant="h6">{stats.words}</Typography>
-          <Typography variant="body2">Words</Typography>
+          <Typography variant="body2">{t('tools.character-counter.words')}</Typography>
         </Paper>
         <Paper sx={{ p: 2, textAlign: 'center', flexGrow: 1 }}>
           <Typography variant="h6">{stats.lines}</Typography>
-          <Typography variant="body2">Lines</Typography>
+          <Typography variant="body2">{t('tools.character-counter.lines')}</Typography>
         </Paper>
       </Box>
     </ToolPageLayout>

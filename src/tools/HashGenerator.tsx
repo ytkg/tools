@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Paper, Typography, CircularProgress, Box } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 async function generateHash(algorithm: string, text: string): Promise<string> {
   const encoder = new TextEncoder();
@@ -12,6 +13,7 @@ async function generateHash(algorithm: string, text: string): Promise<string> {
 }
 
 const HashGenerator: React.FC = () => {
+  const { t } = useTranslation();
   const [inputText, setInputText] = useState('');
   const [hashes, setHashes] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
@@ -29,11 +31,11 @@ const HashGenerator: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="Hash Generator"
-      description="Generate various hash digests (SHA-1, SHA-256, etc.)."
+      title={t('tools.hash-generator.name')}
+      description={t('tools.hash-generator.description')}
     >
       <TextField
-        label="Input Text"
+        label={t('tools.hash-generator.input_label')}
         multiline
         rows={8}
         value={inputText}
@@ -49,7 +51,7 @@ const HashGenerator: React.FC = () => {
           disabled={loading || !inputText}
           startIcon={loading ? <CircularProgress size={20} /> : null}
         >
-          {loading ? 'Generating...' : 'Generate Hashes'}
+          {loading ? t('tools.hash-generator.generating_button') : t('tools.hash-generator.generate_button')}
         </Button>
       </Box>
       {Object.keys(hashes).length > 0 && (

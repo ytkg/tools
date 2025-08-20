@@ -16,6 +16,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Link, Outlet } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
 
 import HomeIcon from '@mui/icons-material/Home';
 import { toolList } from '../data/tools';
@@ -47,13 +51,14 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const navigationList = [
-    { text: 'Home', path: '/', icon: <HomeIcon /> },
-    ...toolList,
-]
+const navigationList = (t: (key: string) => string) => [
+    { text: t('layout.home'), path: '/', icon: <HomeIcon /> },
+    ...toolList.map(tool => ({...tool, text: t(`tools.${tool.path}.name`)}))
+];
 
 export default function ResponsiveLayout() {
     const theme = useTheme();
+    const { i18n, t } = useTranslation();
     const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -61,16 +66,20 @@ export default function ResponsiveLayout() {
         setMobileOpen(!mobileOpen);
     };
 
+    const handleLanguageChange = (event: any) => {
+        i18n.changeLanguage(event.target.value);
+    };
+
     const drawerContent = (
         <div>
             <DrawerHeader>
                 <Typography variant="h6" noWrap component="div">
-                    Developer Tools
+                    {t('layout.title')}
                 </Typography>
             </DrawerHeader>
             <Divider />
             <List>
-                {navigationList.map((tool) => (
+                {navigationList(t).map((tool) => (
                     <ListItem key={tool.text} disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             component={Link}
@@ -106,8 +115,18 @@ export default function ResponsiveLayout() {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none' } }}
                     >
-                        Developer Tools
+                        {t('layout.title')}
                     </Typography>
+                    <Box sx={{ flexGrow: 1 }} />
+                    <FormControl size="small" sx={{ m: 1, minWidth: 120 }}>
+                        <Select
+                            value={i18n.language}
+                            onChange={handleLanguageChange}
+                        >
+                            <MenuItem value={'en'}>English</MenuItem>
+                            <MenuItem value={'ja'}>日本語</MenuItem>
+                        </Select>
+                    </FormControl>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"

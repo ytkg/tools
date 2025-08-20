@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, Typography, Box, CircularProgress, Alert, Table, TableBody, TableCell, TableContainer, TableRow, Paper } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 interface IpInfo {
     ip: string;
@@ -20,6 +21,7 @@ interface IpInfo {
 }
 
 const IpAddressViewer: React.FC = () => {
+    const { t } = useTranslation();
     const [ipInfo, setIpInfo] = useState<IpInfo | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -30,7 +32,7 @@ const IpAddressViewer: React.FC = () => {
             try {
                 const response = await fetch('https://ipapi.co/json/');
                 if (!response.ok) {
-                    throw new Error('Failed to fetch IP information.');
+                    throw new Error(t('tools.ip-address-viewer.error_fetch'));
                 }
                 const data: IpInfo = await response.json();
                 setIpInfo(data);
@@ -38,7 +40,7 @@ const IpAddressViewer: React.FC = () => {
                 if (err instanceof Error) {
                     setError(err.message);
                 } else {
-                    setError('An unknown error occurred.');
+                    setError(t('tools.ip-address-viewer.error_unknown'));
                 }
             } finally {
                 setLoading(false);
@@ -46,16 +48,20 @@ const IpAddressViewer: React.FC = () => {
         };
 
         fetchIpInfo();
-    }, []);
+    }, [t]);
+
+    const getLabel = (key: string) => {
+        return t(`tools.ip-address-viewer.ip_info_labels.${key}`, { defaultValue: key.replace(/_/g, ' ') });
+    }
 
     return (
         <ToolPageLayout
-            title="IP Address Viewer"
-            description="Display your public IP address and browser information (User Agent)."
+            title={t('tools.ip-address-viewer.name')}
+            description={t('tools.ip-address-viewer.description')}
         >
             <Card sx={{ mb: 2 }}>
                 <CardContent>
-                    <Typography variant="h6" gutterBottom>User Agent</Typography>
+                    <Typography variant="h6" gutterBottom>{t('tools.ip-address-viewer.user_agent_title')}</Typography>
                     <Typography variant="body1" sx={{ fontFamily: 'monospace', wordBreak: 'break-all' }}>
                         {userAgent}
                     </Typography>
@@ -64,7 +70,7 @@ const IpAddressViewer: React.FC = () => {
 
             <Card>
                 <CardContent>
-                    <Typography variant="h6" gutterBottom>IP Address Information</Typography>
+                    <Typography variant="h6" gutterBottom>{t('tools.ip-address-viewer.ip_info_title')}</Typography>
                     {loading && (
                         <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
                             <CircularProgress />
@@ -78,7 +84,7 @@ const IpAddressViewer: React.FC = () => {
                                     {Object.entries(ipInfo).map(([key, value]) => (
                                         <TableRow key={key}>
                                             <TableCell component="th" scope="row" sx={{ textTransform: 'capitalize' }}>
-                                                {key.replace(/_/g, ' ')}
+                                                {getLabel(key)}
                                             </TableCell>
                                             <TableCell>{value}</TableCell>
                                         </TableRow>

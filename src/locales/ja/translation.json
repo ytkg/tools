@@ -1,0 +1,179 @@
+{
+  "layout": {
+    "title": "開発者ツール",
+    "home": "ホーム"
+  },
+  "home": {
+    "title": "ツール",
+    "meta_description": "JSONフォーマッター、Base64コンバーターなど、便利な開発者ツールのコレクション。",
+    "all_tags": "すべて"
+  },
+  "tools": {
+    "json-formatter": {
+      "name": "JSONフォーマッター",
+      "description": "JSONドキュメントをフォーマットして検証します。",
+      "input_label": "入力JSON",
+      "output_label": "フォーマット済みJSON",
+      "format_button": "フォーマット",
+      "clear_button": "クリア",
+      "error_invalid": "無効なJSONです: {{message}}",
+      "error_unknown": "JSONの解析中に不明なエラーが発生しました。"
+    },
+    "base64-converter": {
+      "name": "Base64コンバーター",
+      "description": "Base64文字列をエンコードおよびデコードします。",
+      "inputLabel": "入力",
+      "outputLabel": "出力",
+      "encode_button": "エンコード",
+      "decode_button": "デコード",
+      "clear_button": "クリア",
+      "error_encoding": "エンコードエラー: {{message}}",
+      "error_decoding": "無効なBase64文字列です: {{message}}",
+      "error_unknown_encoding": "不明なエンコードエラーが発生しました。",
+      "error_unknown_decoding": "不明なデコードエラーが発生しました。"
+    },
+    "character-counter": {
+      "name": "文字数カウンター",
+      "description": "テキストの文字、単語、行を数えます。",
+      "label": "ここにテキストを入力してください",
+      "characters_with_spaces": "文字数（スペース込み）",
+      "characters_no_spaces": "文字数（スペースなし）",
+      "words": "単語数",
+      "lines": "行数"
+    },
+    "qr-code-generator": {
+      "name": "QRコードジェネレーター",
+      "description": "テキストやURLからQRコードを生成します。"
+    },
+    "unix-timestamp": {
+      "name": "Unixタイムスタンプ",
+      "description": "Unixタイムスタンプと人間が読める日付を変換します。"
+    },
+    "url-encoder-decoder": {
+      "name": "URLエンコーダー/デコーダー",
+      "description": "URLコンポーネントをエンコードおよびデコードします。"
+    },
+    "color-converter": {
+      "name": "カラーコンバーター",
+      "description": "HEXとRGBカラーコードを変換します。",
+      "hex_label": "HEX",
+      "rgb_label": "RGB"
+    },
+    "markdown-previewer": {
+      "name": "Markdownプレビューア",
+      "description": "Markdownテキストをリアルタイムで編集・プレビューします。",
+      "input_label": "Markdown入力",
+      "initial_markdown": "# Markdownプレビューアへようこそ！\n\n## これは小見出しです...\n### そして、他にも素晴らしい機能があります:\n\nこれはバッククオート2つの間のコードです: `<div></div>`\n\n```\n// これは複数行のコードです:\n\nfunction anotherExample(firstLine, lastLine) {\n  if (firstLine == '```' && lastLine == '```') {\n    return multiLineCode;\n  }\n}\n```\n\nテキストを**太字**にすることもできます...すごい！\nまたは_イタリック_に。\nまたは...お待ちかね...**_両方！_**\nそして、自由に~~取り消し線~~を引いてみてください。\n\n[リンク](https://www.freecodecamp.org)や、\n> 引用ブロックもあります！\n\nさらにクレイジーになりたいなら、テーブルもどうぞ:\n\nワイルドなヘッダー | クレイジーなヘッダー | もう一つのヘッダー？\n------------ | ------------- | -------------\nあなたのコンテンツは | ここに、そして | ここにも書けます....\nそしてここにも。 | オーケー。 | もうお分かりでしょう。\n\n- そしてもちろんリストもあります。\n  - 箇条書きリスト。\n     - 異なるインデントレベルで。\n        - このように見えます。"
+    },
+    "jwt-decoder": {
+      "name": "JWTデコーダー",
+      "description": "JSON Web Tokenをデコードして内容を表示します。",
+      "input_label": "JWTトークン",
+      "header_title": "ヘッダー",
+      "payload_title": "ペイロード",
+      "error_invalid": "無効なJWTトークンです: {{message}}",
+      "error_unknown": "不明なエラーが発生しました。"
+    },
+    "hash-generator": {
+      "name": "ハッシュジェネレーター",
+      "description": "さまざまなハッシュダイジェスト（SHA-1、SHA-256など）を生成します。",
+      "input_label": "入力テキスト",
+      "generate_button": "ハッシュを生成",
+      "generating_button": "生成中..."
+    },
+    "time-zone-converter": {
+      "name": "タイムゾーンコンバーター",
+      "description": "世界中の複数の都市の時刻を比較・確認します。"
+    },
+    "ip-address-viewer": {
+      "name": "IPアドレスビューア",
+      "description": "あなたのパブリックIPアドレスとブラウザ情報（ユーザーエージェント）を表示します。",
+      "user_agent_title": "ユーザーエージェント",
+      "ip_info_title": "IPアドレス情報",
+      "error_fetch": "IP情報の取得に失敗しました。",
+      "error_unknown": "不明なエラーが発生しました。",
+      "ip_info_labels": {
+        "ip": "IPアドレス",
+        "network": "ネットワーク",
+        "version": "バージョン",
+        "city": "市",
+        "region": "地域",
+        "country_name": "国",
+        "country_code": "国コード",
+        "postal": "郵便番号",
+        "latitude": "緯度",
+        "longitude": "経度",
+        "timezone": "タイムゾーン",
+        "utc_offset": "UTCオフセット",
+        "org": "組織",
+        "asn": "ASN"
+      }
+    },
+    "keyboard-event-viewer": {
+      "name": "キーボードイベントビューア",
+      "description": "押されたキーボードキーに関する情報（key、code、keyCodeなど）を表示します。",
+      "press_any_key": "何かキーを押してください",
+      "info_will_be_displayed": "キーイベント情報が以下に表示されます。",
+      "key_label": "キー:",
+      "waiting_for_press": "キー入力を待っています...",
+      "event_info_labels": {
+        "key": "key",
+        "code": "code",
+        "keyCode": "keyCode",
+        "which": "which",
+        "shiftKey": "shiftKey",
+        "altKey": "altKey",
+        "ctrlKey": "ctrlKey",
+        "metaKey": "metaKey"
+      }
+    },
+    "lorem-ipsum-generator": {
+      "name": "Lorem Ipsumジェネレーター",
+      "description": "デザイン用のダミーテキストを生成します。",
+      "count_label": "数",
+      "units_label": "単位",
+      "paragraphs_unit": "段落",
+      "sentences_unit": "文",
+      "words_unit": "単語",
+      "generate_button": "生成",
+      "generated_text_label": "生成されたテキスト",
+      "copy_button": "クリップボードにコピー"
+    },
+    "text-sorter": {
+      "name": "テキストソーター",
+      "description": "テキストから行をソート、逆順、重複削除します。"
+    },
+    "slug-generator": {
+      "name": "スラッグジェネレーター",
+      "description": "テキストをURLフレンドリーなスラッグに変換します。"
+    }
+  },
+  "tags": {
+    "formatter": "フォーマッター",
+    "json": "JSON",
+    "encoder": "エンコーダー",
+    "decoder": "デコーダー",
+    "converter": "コンバーター",
+    "text": "テキスト",
+    "counter": "カウンター",
+    "generator": "ジェネレーター",
+    "image": "画像",
+    "time": "時間",
+    "url": "URL",
+    "color": "色",
+    "css": "CSS",
+    "markdown": "Markdown",
+    "jwt": "JWT",
+    "security": "セキュリティ",
+    "hash": "ハッシュ",
+    "timezone": "タイムゾーン",
+    "network": "ネットワーク",
+    "ip": "IP",
+    "info": "情報",
+    "keyboard": "キーボード",
+    "event": "イベント",
+    "developer": "開発者",
+    "dummy": "ダミー",
+    "utils": "ユーティリティ"
+  }
+}
