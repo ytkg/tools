@@ -2,8 +2,10 @@ import React, { useState, useMemo } from 'react';
 import { TextField, Paper, Typography, Button } from '@mui/material';
 import slugify from 'slugify';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 const SlugGenerator: React.FC = () => {
+  const { t } = useTranslation();
   const [inputText, setInputText] = useState('');
 
   const generatedSlug = useMemo(() => {
@@ -17,11 +19,11 @@ const SlugGenerator: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="Slug Generator"
-      description="Convert text into a URL-friendly slug."
+      title={t('tools.slug-generator.name')}
+      description={t('tools.slug-generator.description')}
     >
       <TextField
-        label="Enter your text"
+        label={t('tools.slug-generator.input_label')}
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
         variant="outlined"
@@ -30,7 +32,7 @@ const SlugGenerator: React.FC = () => {
       />
       <Paper sx={{ p: 2, backgroundColor: '#f5f5f5' }}>
         <Typography variant="h6" component="p" sx={{ wordBreak: 'break-all' }}>
-          {generatedSlug || 'your-slug-will-appear-here'}
+          {generatedSlug || t('tools.slug-generator.placeholder')}
         </Typography>
       </Paper>
       <Button
@@ -39,7 +41,7 @@ const SlugGenerator: React.FC = () => {
         disabled={!generatedSlug}
         sx={{ mt: 2 }}
       >
-        Copy Slug
+        {t('tools.slug-generator.copy_button')}
       </Button>
     </ToolPageLayout>
   );

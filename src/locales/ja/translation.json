@@ -43,15 +43,40 @@
     },
     "qr-code-generator": {
       "name": "QRコードジェネレーター",
-      "description": "テキストやURLからQRコードを生成します。"
+      "description": "テキストやURLからQRコードを生成します。",
+      "input_label": "エンコードするテキスト",
+      "size_label": "QRコードサイズ: {{size}}px",
+      "level_label": "誤り訂正レベル",
+      "level_l": "低 (L)",
+      "level_m": "中 (M)",
+      "level_q": "四分位 (Q)",
+      "level_h": "高 (H)"
     },
     "unix-timestamp": {
-      "name": "Unixタイムスタンプ",
-      "description": "Unixタイムスタンプと人間が読める日付を変換します。"
+      "name": "Unixタイムスタンプ変換",
+      "description": "Unixタイムスタンプと人間が読める日付を相互に変換します。",
+      "current_timestamp_label": "現在のタイムスタンプ",
+      "ts_to_date_title": "タイムスタンプから日付へ",
+      "ts_input_label": "Unixタイムスタンプ",
+      "date_to_ts_title": "日付からタイムスタンプへ",
+      "date_input_label": "日付/時刻 文字列",
+      "date_input_helper": "例: 2024-08-15 10:00:00",
+      "convert_button": "変換",
+      "invalid_ts_error": "無効なタイムスタンプ",
+      "invalid_date_error": "無効な日付"
     },
     "url-encoder-decoder": {
       "name": "URLエンコーダー/デコーダー",
-      "description": "URLコンポーネントをエンコードおよびデコードします。"
+      "description": "URLコンポーネントをエンコードおよびデコードします。",
+      "input_label": "入力",
+      "output_label": "出力",
+      "encode_button": "エンコード",
+      "decode_button": "デコード",
+      "clear_button": "クリア",
+      "error_encoding": "エンコードエラー: {{message}}",
+      "error_unknown_encoding": "不明なエンコードエラーが発生しました。",
+      "error_decoding": "無効なURLエンコーディングです: {{message}}",
+      "error_unknown_decoding": "不明なデコードエラーが発生しました。"
     },
     "color-converter": {
       "name": "カラーコンバーター",
@@ -83,7 +108,8 @@
     },
     "time-zone-converter": {
       "name": "タイムゾーンコンバーター",
-      "description": "世界中の複数の都市の時刻を比較・確認します。"
+      "description": "世界中の複数の都市の時刻を比較・確認します。",
+      "add_timezone_label": "タイムゾーンを追加"
     },
     "ip-address-viewer": {
       "name": "IPアドレスビューア",
@@ -140,12 +166,22 @@
       "copy_button": "クリップボードにコピー"
     },
     "text-sorter": {
-      "name": "テキストソーター",
-      "description": "テキストから行をソート、逆順、重複削除します。"
+      "name": "テキストソーター＆重複削除",
+      "description": "テキストから行をソート、逆順、重複削除します。",
+      "input_label": "入力テキスト",
+      "output_label": "出力テキスト",
+      "sort_az_button": "A-Zにソート",
+      "sort_za_button": "Z-Aにソート",
+      "deduplicate_button": "重複を削除",
+      "reverse_button": "行を逆順にする",
+      "copy_button": "出力をコピー"
     },
     "slug-generator": {
       "name": "スラッグジェネレーター",
-      "description": "テキストをURLフレンドリーなスラッグに変換します。"
+      "description": "テキストをURLフレンドリーなスラッグに変換します。",
+      "input_label": "テキストを入力してください",
+      "placeholder": "ここにスラッグが表示されます",
+      "copy_button": "スラッグをコピー"
     }
   },
   "tags": {

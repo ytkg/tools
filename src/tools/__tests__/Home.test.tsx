@@ -5,6 +5,6 @@ import Home from '../Home';
 describe('Home', () => {
   it('renders the Tools heading', () => {
     render(<Home />);
-    expect(screen.getByText('Tools')).toBeInTheDocument();
+    expect(screen.getByText('home.title')).toBeInTheDocument();
   });
 });

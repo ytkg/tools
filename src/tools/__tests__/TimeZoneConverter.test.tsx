@@ -19,7 +19,7 @@ vi.mock('date-fns-tz', () => ({
 describe('TimeZoneConverter', () => {
     it('renders the component and default timezones', () => {
         render(<TimeZoneConverter />);
-        expect(screen.getByText('Time Zone Converter')).toBeInTheDocument();
+        expect(screen.getByText('tools.time-zone-converter.name')).toBeInTheDocument();
 
         const list = screen.getByRole('list');
         const listItems = within(list).getAllByRole('listitem');

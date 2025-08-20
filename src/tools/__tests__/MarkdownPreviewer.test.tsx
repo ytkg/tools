@@ -5,14 +5,15 @@ import MarkdownPreviewer from '../MarkdownPreviewer';
 describe('MarkdownPreviewer', () => {
   it('renders the component with initial markdown', () => {
     render(<MarkdownPreviewer />);
-    expect(screen.getByText('Markdown Previewer')).toBeInTheDocument();
-    // Check for an element from the initial markdown
-    expect(screen.getByText('Block Quotes!')).toBeInTheDocument();
+    expect(screen.getByText('tools.markdown-previewer.name')).toBeInTheDocument();
+    // Check that the input textarea has the initial markdown
+    const inputArea = screen.getByLabelText('tools.markdown-previewer.input_label');
+    expect(inputArea).toHaveValue('tools.markdown-previewer.initial_markdown');
   });
 
   it('updates the preview when markdown is changed', () => {
     render(<MarkdownPreviewer />);
-    const inputArea = screen.getByLabelText('Markdown Input');
+    const inputArea = screen.getByLabelText('tools.markdown-previewer.input_label');
 
     fireEvent.change(inputArea, { target: { value: '# New Header' } });
 

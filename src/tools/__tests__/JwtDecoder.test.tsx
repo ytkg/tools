@@ -10,12 +10,12 @@ describe('JwtDecoder', () => {
 
   it('renders the component', () => {
     render(<JwtDecoder />);
-    expect(screen.getByText('JWT Decoder')).toBeInTheDocument();
+    expect(screen.getByText('tools.jwt-decoder.name')).toBeInTheDocument();
   });
 
   it('decodes a valid JWT', async () => {
     render(<JwtDecoder />);
-    const inputArea = screen.getByLabelText('JWT Token');
+    const inputArea = screen.getByLabelText('tools.jwt-decoder.input_label');
 
     fireEvent.change(inputArea, { target: { value: validJwt } });
 
@@ -29,10 +29,10 @@ describe('JwtDecoder', () => {
 
   it('shows an error for an invalid JWT', () => {
     render(<JwtDecoder />);
-    const inputArea = screen.getByLabelText('JWT Token');
+    const inputArea = screen.getByLabelText('tools.jwt-decoder.input_label');
 
     fireEvent.change(inputArea, { target: { value: 'invalid.token.string' } });
 
-    expect(screen.getByText(/Invalid JWT Token/)).toBeInTheDocument();
+    expect(screen.getByText(/tools.jwt-decoder.error_invalid/)).toBeInTheDocument();
   });
 });

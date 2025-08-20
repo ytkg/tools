@@ -43,15 +43,40 @@
     },
     "qr-code-generator": {
       "name": "QR Code Generator",
-      "description": "Generate QR codes from text or URLs."
+      "description": "Generate QR codes from text or URLs.",
+      "input_label": "Text to encode",
+      "size_label": "QR Code Size: {{size}}px",
+      "level_label": "Error Correction Level",
+      "level_l": "Low (L)",
+      "level_m": "Medium (M)",
+      "level_q": "Quartile (Q)",
+      "level_h": "High (H)"
     },
     "unix-timestamp": {
-      "name": "Unix Timestamp",
-      "description": "Convert between Unix timestamps and human-readable dates."
+      "name": "Unix Timestamp Converter",
+      "description": "Convert between Unix timestamps and human-readable dates.",
+      "current_timestamp_label": "Current Timestamp",
+      "ts_to_date_title": "Timestamp to Date",
+      "ts_input_label": "Unix Timestamp",
+      "date_to_ts_title": "Date to Timestamp",
+      "date_input_label": "Date/Time String",
+      "date_input_helper": "e.g., 2024-08-15 10:00:00",
+      "convert_button": "Convert",
+      "invalid_ts_error": "Invalid Timestamp",
+      "invalid_date_error": "Invalid Date"
     },
     "url-encoder-decoder": {
       "name": "URL Encoder/Decoder",
-      "description": "Encode and decode URL components."
+      "description": "Encode and decode URL components.",
+      "input_label": "Input",
+      "output_label": "Output",
+      "encode_button": "Encode",
+      "decode_button": "Decode",
+      "clear_button": "Clear",
+      "error_encoding": "Error encoding: {{message}}",
+      "error_unknown_encoding": "An unknown encoding error occurred.",
+      "error_decoding": "Invalid URL encoding: {{message}}",
+      "error_unknown_decoding": "An unknown decoding error occurred."
     },
     "color-converter": {
       "name": "Color Converter",
@@ -83,7 +108,8 @@
     },
     "time-zone-converter": {
       "name": "Time Zone Converter",
-      "description": "Compare and check the time in multiple cities around the world."
+      "description": "Compare and check the time in multiple cities around the world.",
+      "add_timezone_label": "Add a time zone"
     },
     "ip-address-viewer": {
       "name": "IP Address Viewer",
@@ -140,12 +166,22 @@
       "copy_button": "Copy to Clipboard"
     },
     "text-sorter": {
-      "name": "Text Sorter",
-      "description": "Sort, reverse, and remove duplicate lines from text."
+      "name": "Text Sorter & Deduplicator",
+      "description": "Sort, reverse, and remove duplicate lines from text.",
+      "input_label": "Input Text",
+      "output_label": "Output Text",
+      "sort_az_button": "Sort A-Z",
+      "sort_za_button": "Sort Z-A",
+      "deduplicate_button": "Remove Duplicates",
+      "reverse_button": "Reverse Lines",
+      "copy_button": "Copy Output"
     },
     "slug-generator": {
       "name": "Slug Generator",
-      "description": "Convert text into a URL-friendly slug."
+      "description": "Convert text into a URL-friendly slug.",
+      "input_label": "Enter your text",
+      "placeholder": "your-slug-will-appear-here",
+      "copy_button": "Copy Slug"
     }
   },
   "tags": {

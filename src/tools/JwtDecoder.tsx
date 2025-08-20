@@ -30,7 +30,7 @@ const JwtDecoder: React.FC = () => {
       }
       return null;
     }
-  }, [token, t]);
+  }, [token]);
 
   return (
     <ToolPageLayout
