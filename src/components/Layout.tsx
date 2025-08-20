@@ -18,6 +18,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { Link, Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Select from '@mui/material/Select';
+import type { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 
@@ -66,7 +67,7 @@ export default function ResponsiveLayout() {
         setMobileOpen(!mobileOpen);
     };
 
-    const handleLanguageChange = (event: any) => {
+    const handleLanguageChange = (event: SelectChangeEvent) => {
         i18n.changeLanguage(event.target.value);
     };
 
