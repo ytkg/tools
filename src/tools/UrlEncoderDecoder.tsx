@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 const UrlEncoderDecoder: React.FC = () => {
+  const { t } = useTranslation();
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [error, setError] = useState('');
@@ -14,9 +16,9 @@ const UrlEncoderDecoder: React.FC = () => {
       setError('');
     } catch (e) {
       if (e instanceof Error) {
-        setError('Error encoding: ' + e.message);
+        setError(t('tools.url-encoder-decoder.error_encoding', { message: e.message }));
       } else {
-        setError('An unknown encoding error occurred.');
+        setError(t('tools.url-encoder-decoder.error_unknown_encoding'));
       }
       setOutputText('');
     }
@@ -29,9 +31,9 @@ const UrlEncoderDecoder: React.FC = () => {
       setError('');
     } catch (e) {
       if (e instanceof Error) {
-        setError('Invalid URL encoding: ' + e.message);
+        setError(t('tools.url-encoder-decoder.error_decoding', { message: e.message }));
       } else {
-        setError('An unknown decoding error occurred.');
+        setError(t('tools.url-encoder-decoder.error_unknown_decoding'));
       }
       setOutputText('');
     }
@@ -45,13 +47,13 @@ const UrlEncoderDecoder: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="URL Encoder/Decoder"
-      description="Encode and decode URL components."
+      title={t('tools.url-encoder-decoder.name')}
+      description={t('tools.url-encoder-decoder.description')}
     >
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
-            label="Input"
+            label={t('tools.url-encoder-decoder.input_label')}
             multiline
             rows={10}
             value={inputText}
@@ -64,7 +66,7 @@ const UrlEncoderDecoder: React.FC = () => {
         </Box>
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <TextField
-            label="Output"
+            label={t('tools.url-encoder-decoder.output_label')}
             multiline
             rows={10}
             value={outputText}
@@ -78,13 +80,13 @@ const UrlEncoderDecoder: React.FC = () => {
       </Box>
       <Box sx={{ mt: 2 }}>
         <Button variant="contained" onClick={handleEncode} sx={{ mr: 1 }}>
-          Encode
+          {t('tools.url-encoder-decoder.encode_button')}
         </Button>
         <Button variant="contained" onClick={handleDecode} sx={{ mr: 1 }}>
-          Decode
+          {t('tools.url-encoder-decoder.decode_button')}
         </Button>
         <Button variant="outlined" onClick={handleClear}>
-          Clear
+          {t('tools.url-encoder-decoder.clear_button')}
         </Button>
       </Box>
     </ToolPageLayout>

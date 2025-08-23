@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Paper } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 const TextSorter: React.FC = () => {
+  const { t } = useTranslation();
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
 
@@ -32,12 +34,12 @@ const TextSorter: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="Text Sorter & Deduplicator"
-      description="Sort, reverse, and remove duplicate lines from text."
+      title={t('tools.text-sorter.name')}
+      description={t('tools.text-sorter.description')}
     >
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
         <TextField
-          label="Input Text"
+          label={t('tools.text-sorter.input_label')}
           multiline
           rows={15}
           value={inputText}
@@ -47,7 +49,7 @@ const TextSorter: React.FC = () => {
           sx={{ flex: 1 }}
         />
         <TextField
-          label="Output Text"
+          label={t('tools.text-sorter.output_label')}
           multiline
           rows={15}
           value={outputText}
@@ -62,23 +64,23 @@ const TextSorter: React.FC = () => {
       <Paper sx={{ p: 2, mt: 2 }}>
         <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
           <Button variant="contained" onClick={sortAsc}>
-            Sort A-Z
+            {t('tools.text-sorter.sort_az_button')}
           </Button>
           <Button variant="contained" onClick={sortDesc}>
-            Sort Z-A
+            {t('tools.text-sorter.sort_za_button')}
           </Button>
           <Button variant="contained" onClick={removeDuplicates}>
-            Remove Duplicates
+            {t('tools.text-sorter.deduplicate_button')}
           </Button>
           <Button variant="contained" onClick={reverseLines}>
-            Reverse Lines
+            {t('tools.text-sorter.reverse_button')}
           </Button>
           <Button
             variant="outlined"
             onClick={() => navigator.clipboard.writeText(outputText)}
             disabled={!outputText}
           >
-            Copy Output
+            {t('tools.text-sorter.copy_button')}
           </Button>
         </Box>
       </Paper>

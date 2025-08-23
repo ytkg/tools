@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
+import { useTranslation } from 'react-i18next';
 
 interface PageMetaProps {
   title: string;
@@ -7,7 +8,8 @@ interface PageMetaProps {
 }
 
 const PageMeta: React.FC<PageMetaProps> = ({ title, description }) => {
-  const fullTitle = title ? `${title} | Developer Tools` : 'Developer Tools';
+  const { t } = useTranslation();
+  const fullTitle = title ? `${title} | ${t('layout.title')}` : t('layout.title');
   return (
     <Helmet>
       <title>{fullTitle}</title>

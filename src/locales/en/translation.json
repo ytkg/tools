@@ -1,0 +1,215 @@
+{
+  "layout": {
+    "title": "Developer Tools",
+    "home": "Home"
+  },
+  "home": {
+    "title": "Tools",
+    "meta_description": "A collection of useful developer tools like JSON formatter, Base64 converter, and more.",
+    "all_tags": "All"
+  },
+  "tools": {
+    "json-formatter": {
+      "name": "JSON Formatter",
+      "description": "Format and validate JSON documents.",
+      "input_label": "Input JSON",
+      "output_label": "Formatted JSON",
+      "format_button": "Format",
+      "clear_button": "Clear",
+      "error_invalid": "Invalid JSON: {{message}}",
+      "error_unknown": "An unknown error occurred while parsing JSON."
+    },
+    "base64-converter": {
+      "name": "Base64 Converter",
+      "description": "Encode and decode Base64 strings.",
+      "inputLabel": "Input",
+      "outputLabel": "Output",
+      "encode_button": "Encode",
+      "decode_button": "Decode",
+      "clear_button": "Clear",
+      "error_encoding": "Error encoding: {{message}}",
+      "error_decoding": "Invalid Base64 string: {{message}}",
+      "error_unknown_encoding": "An unknown encoding error occurred.",
+      "error_unknown_decoding": "An unknown decoding error occurred."
+    },
+    "character-counter": {
+      "name": "Character Counter",
+      "description": "Count characters, words, and lines in text.",
+      "label": "Enter your text here",
+      "characters_with_spaces": "Characters (with spaces)",
+      "characters_no_spaces": "Characters (no spaces)",
+      "words": "Words",
+      "lines": "Lines"
+    },
+    "qr-code-generator": {
+      "name": "QR Code Generator",
+      "description": "Generate QR codes from text or URLs.",
+      "input_label": "Text to encode",
+      "size_label": "QR Code Size: {{size}}px",
+      "level_label": "Error Correction Level",
+      "level_l": "Low (L)",
+      "level_m": "Medium (M)",
+      "level_q": "Quartile (Q)",
+      "level_h": "High (H)"
+    },
+    "unix-timestamp": {
+      "name": "Unix Timestamp Converter",
+      "description": "Convert between Unix timestamps and human-readable dates.",
+      "current_timestamp_label": "Current Timestamp",
+      "ts_to_date_title": "Timestamp to Date",
+      "ts_input_label": "Unix Timestamp",
+      "date_to_ts_title": "Date to Timestamp",
+      "date_input_label": "Date/Time String",
+      "date_input_helper": "e.g., 2024-08-15 10:00:00",
+      "convert_button": "Convert",
+      "invalid_ts_error": "Invalid Timestamp",
+      "invalid_date_error": "Invalid Date"
+    },
+    "url-encoder-decoder": {
+      "name": "URL Encoder/Decoder",
+      "description": "Encode and decode URL components.",
+      "input_label": "Input",
+      "output_label": "Output",
+      "encode_button": "Encode",
+      "decode_button": "Decode",
+      "clear_button": "Clear",
+      "error_encoding": "Error encoding: {{message}}",
+      "error_unknown_encoding": "An unknown encoding error occurred.",
+      "error_decoding": "Invalid URL encoding: {{message}}",
+      "error_unknown_decoding": "An unknown decoding error occurred."
+    },
+    "color-converter": {
+      "name": "Color Converter",
+      "description": "Convert between HEX and RGB color codes.",
+      "hex_label": "HEX",
+      "rgb_label": "RGB"
+    },
+    "markdown-previewer": {
+      "name": "Markdown Previewer",
+      "description": "Edit and preview Markdown text in real-time.",
+      "input_label": "Markdown Input",
+      "initial_markdown": "# Welcome to my Markdown Previewer!\n\n## This is a sub-heading...\n### And here's some other cool stuff:\n\nHeres some code, `<div></div>`, between 2 backticks.\n\n```\n// this is multi-line code:\n\nfunction anotherExample(firstLine, lastLine) {\n  if (firstLine == '```' && lastLine == '```') {\n    return multiLineCode;\n  }\n}\n```\n\nYou can also make text **bold**... whoa!\nOr _italic_.\nOr... wait for it... **_both!_**\nAnd feel free to go crazy ~~crossing stuff out~~.\n\nThere's also [links](https://www.freecodecamp.org), and\n> Block Quotes!\n\nAnd if you want to get really crazy, even tables:\n\nWild Header | Crazy Header | Another Header?\n------------ | ------------- | -------------\nYour content can | be here, and it | can be here....\nAnd here. | Okay. | I think we get it.\n\n- And of course there are lists.\n  - Some are bulleted.\n     - With different indentation levels.\n        - That look like this."
+    },
+    "jwt-decoder": {
+      "name": "JWT Decoder",
+      "description": "Decode JSON Web Tokens and view their contents.",
+      "input_label": "JWT Token",
+      "header_title": "Header",
+      "payload_title": "Payload",
+      "error_invalid": "Invalid JWT Token: {{message}}",
+      "error_unknown": "An unknown error occurred."
+    },
+    "hash-generator": {
+      "name": "Hash Generator",
+      "description": "Generate various hash digests (SHA-1, SHA-256, etc.).",
+      "input_label": "Input Text",
+      "generate_button": "Generate Hashes",
+      "generating_button": "Generating..."
+    },
+    "time-zone-converter": {
+      "name": "Time Zone Converter",
+      "description": "Compare and check the time in multiple cities around the world.",
+      "add_timezone_label": "Add a time zone"
+    },
+    "ip-address-viewer": {
+      "name": "IP Address Viewer",
+      "description": "Display your public IP address and browser information (User Agent).",
+      "user_agent_title": "User Agent",
+      "ip_info_title": "IP Address Information",
+      "error_fetch": "Failed to fetch IP information.",
+      "error_unknown": "An unknown error occurred.",
+      "ip_info_labels": {
+        "ip": "IP Address",
+        "network": "Network",
+        "version": "Version",
+        "city": "City",
+        "region": "Region",
+        "country_name": "Country",
+        "country_code": "Country Code",
+        "postal": "Postal Code",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "timezone": "Timezone",
+        "utc_offset": "UTC Offset",
+        "org": "Organization",
+        "asn": "ASN"
+      }
+    },
+    "keyboard-event-viewer": {
+      "name": "Keyboard Event Viewer",
+      "description": "Display information about pressed keyboard keys (key, code, keyCode, etc.).",
+      "press_any_key": "Press any key",
+      "info_will_be_displayed": "The key event information will be displayed below.",
+      "key_label": "Key:",
+      "waiting_for_press": "Waiting for a key press...",
+      "event_info_labels": {
+        "key": "key",
+        "code": "code",
+        "keyCode": "keyCode",
+        "which": "which",
+        "shiftKey": "shiftKey",
+        "altKey": "altKey",
+        "ctrlKey": "ctrlKey",
+        "metaKey": "metaKey"
+      }
+    },
+    "lorem-ipsum-generator": {
+      "name": "Lorem Ipsum Generator",
+      "description": "Generate dummy text for your designs.",
+      "count_label": "Count",
+      "units_label": "Units",
+      "paragraphs_unit": "Paragraphs",
+      "sentences_unit": "Sentences",
+      "words_unit": "Words",
+      "generate_button": "Generate",
+      "generated_text_label": "Generated Text",
+      "copy_button": "Copy to Clipboard"
+    },
+    "text-sorter": {
+      "name": "Text Sorter & Deduplicator",
+      "description": "Sort, reverse, and remove duplicate lines from text.",
+      "input_label": "Input Text",
+      "output_label": "Output Text",
+      "sort_az_button": "Sort A-Z",
+      "sort_za_button": "Sort Z-A",
+      "deduplicate_button": "Remove Duplicates",
+      "reverse_button": "Reverse Lines",
+      "copy_button": "Copy Output"
+    },
+    "slug-generator": {
+      "name": "Slug Generator",
+      "description": "Convert text into a URL-friendly slug.",
+      "input_label": "Enter your text",
+      "placeholder": "your-slug-will-appear-here",
+      "copy_button": "Copy Slug"
+    }
+  },
+  "tags": {
+    "formatter": "formatter",
+    "json": "json",
+    "encoder": "encoder",
+    "decoder": "decoder",
+    "converter": "converter",
+    "text": "text",
+    "counter": "counter",
+    "generator": "generator",
+    "image": "image",
+    "time": "time",
+    "url": "url",
+    "color": "color",
+    "css": "css",
+    "markdown": "markdown",
+    "jwt": "jwt",
+    "security": "security",
+    "hash": "hash",
+    "timezone": "timezone",
+    "network": "network",
+    "ip": "ip",
+    "info": "info",
+    "keyboard": "keyboard",
+    "event": "event",
+    "developer": "developer",
+    "dummy": "dummy",
+    "utils": "utils"
+  }
+}

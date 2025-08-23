@@ -4,7 +4,7 @@ import KeyboardEventViewer from '../KeyboardEventViewer';
 describe('KeyboardEventViewer', () => {
     it('renders the component and displays keyboard event info', () => {
         render(<KeyboardEventViewer />);
-        expect(screen.getByText('Keyboard Event Viewer')).toBeInTheDocument();
+        expect(screen.getByText('tools.keyboard-event-viewer.name')).toBeInTheDocument();
 
         fireEvent.keyDown(window, { key: 'a', code: 'KeyA', keyCode: 65 });
 

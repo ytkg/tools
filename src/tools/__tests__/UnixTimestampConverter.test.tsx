@@ -9,14 +9,14 @@ describe('UnixTimestampConverter', () => {
 
   it('renders the component and current timestamp', () => {
     render(<UnixTimestampConverter />);
-    expect(screen.getByText('Unix Timestamp Converter')).toBeInTheDocument();
+    expect(screen.getByText('tools.unix-timestamp.name')).toBeInTheDocument();
     expect(screen.getByText('1672531200')).toBeInTheDocument();
   });
 
   it('converts timestamp to date', () => {
     render(<UnixTimestampConverter />);
-    const input = screen.getByLabelText('Unix Timestamp');
-    const convertButton = screen.getAllByText('Convert')[0];
+    const input = screen.getByLabelText('tools.unix-timestamp.ts_input_label');
+    const convertButton = screen.getAllByText('tools.unix-timestamp.convert_button')[0];
 
     fireEvent.change(input, { target: { value: '1672531200' } });
     fireEvent.click(convertButton);
@@ -26,8 +26,8 @@ describe('UnixTimestampConverter', () => {
 
   it('converts date to timestamp', () => {
     render(<UnixTimestampConverter />);
-    const input = screen.getByLabelText('Date/Time String');
-    const convertButton = screen.getAllByText('Convert')[1];
+    const input = screen.getByLabelText('tools.unix-timestamp.date_input_label');
+    const convertButton = screen.getAllByText('tools.unix-timestamp.convert_button')[1];
 
     // Note: The result of new Date() can be timezone-dependent.
     // This test might be brittle if run in different environments.

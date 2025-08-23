@@ -12,8 +12,10 @@ import type { SelectChangeEvent } from '@mui/material';
 import { loremIpsum } from 'lorem-ipsum';
 import type { ILoremIpsumParams } from 'lorem-ipsum';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 const LoremIpsumGenerator: React.FC = () => {
+  const { t } = useTranslation();
   const [count, setCount] = useState<number>(3);
   const [units, setUnits] = useState<'paragraphs' | 'sentences' | 'words'>(
     'paragraphs'
@@ -36,12 +38,12 @@ const LoremIpsumGenerator: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="Lorem Ipsum Generator"
-      description="Generate dummy text for your designs."
+      title={t('tools.lorem-ipsum-generator.name')}
+      description={t('tools.lorem-ipsum-generator.description')}
     >
       <Paper sx={{ p: 2, display: 'flex', gap: 2, alignItems: 'center' }}>
         <TextField
-          label="Count"
+          label={t('tools.lorem-ipsum-generator.count_label')}
           type="number"
           value={count}
           onChange={(e) => setCount(Math.max(1, parseInt(e.target.value, 10)))}
@@ -49,24 +51,24 @@ const LoremIpsumGenerator: React.FC = () => {
           sx={{ width: 100 }}
         />
         <FormControl sx={{ minWidth: 150 }}>
-          <InputLabel id="units-label">Units</InputLabel>
+          <InputLabel id="units-label">{t('tools.lorem-ipsum-generator.units_label')}</InputLabel>
           <Select
             labelId="units-label"
             value={units}
-            label="Units"
+            label={t('tools.lorem-ipsum-generator.units_label')}
             onChange={handleUnitChange}
           >
-            <MenuItem value="paragraphs">Paragraphs</MenuItem>
-            <MenuItem value="sentences">Sentences</MenuItem>
-            <MenuItem value="words">Words</MenuItem>
+            <MenuItem value="paragraphs">{t('tools.lorem-ipsum-generator.paragraphs_unit')}</MenuItem>
+            <MenuItem value="sentences">{t('tools.lorem-ipsum-generator.sentences_unit')}</MenuItem>
+            <MenuItem value="words">{t('tools.lorem-ipsum-generator.words_unit')}</MenuItem>
           </Select>
         </FormControl>
         <Button variant="contained" onClick={handleGenerate}>
-          Generate
+          {t('tools.lorem-ipsum-generator.generate_button')}
         </Button>
       </Paper>
       <TextField
-        label="Generated Text"
+        label={t('tools.lorem-ipsum-generator.generated_text_label')}
         multiline
         rows={15}
         value={generatedText}
@@ -83,7 +85,7 @@ const LoremIpsumGenerator: React.FC = () => {
           disabled={!generatedText}
           sx={{ mt: 1 }}
         >
-          Copy to Clipboard
+          {t('tools.lorem-ipsum-generator.copy_button')}
         </Button>
     </ToolPageLayout>
   );

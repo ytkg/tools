@@ -5,12 +5,12 @@ import CharacterCounter from '../CharacterCounter';
 describe('CharacterCounter', () => {
   it('renders the component', () => {
     render(<CharacterCounter />);
-    expect(screen.getByText('Character Counter')).toBeInTheDocument();
+    expect(screen.getByText('tools.character-counter.name')).toBeInTheDocument();
   });
 
   it('updates counts as user types', () => {
     render(<CharacterCounter />);
-    const inputArea = screen.getByLabelText('Enter your text here');
+    const inputArea = screen.getByLabelText('tools.character-counter.label');
 
     const testString = 'Hello world.\nThis is a test.';
     fireEvent.change(inputArea, { target: { value: testString } });

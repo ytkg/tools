@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { TextField, Box } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 // Basic color conversion functions
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
@@ -19,6 +20,7 @@ function rgbToHex(r: number, g: number, b: number): string {
 }
 
 const ColorConverter: React.FC = () => {
+  const { t } = useTranslation();
   const [hex, setHex] = useState('#1976D2');
   const [rgb, setRgb] = useState('rgb(25, 118, 210)');
 
@@ -47,8 +49,8 @@ const ColorConverter: React.FC = () => {
 
   return (
     <ToolPageLayout
-      title="Color Converter"
-      description="Convert between HEX and RGB color codes."
+      title={t('tools.color-converter.name')}
+      description={t('tools.color-converter.description')}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'wrap' }}>
         <Box>
@@ -73,14 +75,14 @@ const ColorConverter: React.FC = () => {
         </Box>
         <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField
-            label="HEX"
+            label={t('tools.color-converter.hex_label')}
             value={hex}
             onChange={handleHexChange}
             variant="outlined"
             fullWidth
           />
           <TextField
-            label="RGB"
+            label={t('tools.color-converter.rgb_label')}
             value={rgb}
             onChange={handleRgbChange}
             variant="outlined"

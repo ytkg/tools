@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, Typography, Box, Table, TableBody, TableCell, TableContainer, TableRow, Paper, Alert } from '@mui/material';
 import ToolPageLayout from '../components/ToolPageLayout';
+import { useTranslation } from 'react-i18next';
 
 interface KeyboardEventInfo {
     key: string;
@@ -14,6 +15,7 @@ interface KeyboardEventInfo {
 }
 
 const KeyboardEventViewer: React.FC = () => {
+    const { t } = useTranslation();
     const [eventInfo, setEventInfo] = useState<KeyboardEventInfo | null>(null);
 
     useEffect(() => {
@@ -40,19 +42,19 @@ const KeyboardEventViewer: React.FC = () => {
 
     return (
         <ToolPageLayout
-            title="Keyboard Event Viewer"
-            description="Display information about pressed keyboard keys (key, code, keyCode, etc.)."
+            title={t('tools.keyboard-event-viewer.name')}
+            description={t('tools.keyboard-event-viewer.description')}
         >
             <Box sx={{ p: 2, border: '2px dashed grey', borderRadius: 1, textAlign: 'center', mb: 2 }}>
-                <Typography variant="h5">Press any key</Typography>
-                <Typography variant="body1">The key event information will be displayed below.</Typography>
+                <Typography variant="h5">{t('tools.keyboard-event-viewer.press_any_key')}</Typography>
+                <Typography variant="body1">{t('tools.keyboard-event-viewer.info_will_be_displayed')}</Typography>
             </Box>
 
             {eventInfo ? (
                 <Card>
                     <CardContent>
                         <Typography variant="h6" gutterBottom>
-                            Key: <Typography component="span" variant="h6" color="primary" sx={{ fontFamily: 'monospace' }}>{eventInfo.key}</Typography>
+                            {t('tools.keyboard-event-viewer.key_label')} <Typography component="span" variant="h6" color="primary" sx={{ fontFamily: 'monospace' }}>{eventInfo.key}</Typography>
                         </Typography>
                         <TableContainer component={Paper}>
                             <Table>
@@ -60,7 +62,7 @@ const KeyboardEventViewer: React.FC = () => {
                                     {Object.entries(eventInfo).map(([key, value]) => (
                                         <TableRow key={key}>
                                             <TableCell component="th" scope="row" sx={{ textTransform: 'capitalize' }}>
-                                                {key}
+                                                {t(`tools.keyboard-event-viewer.event_info_labels.${key}`, { defaultValue: key })}
                                             </TableCell>
                                             <TableCell>{String(value)}</TableCell>
                                         </TableRow>
@@ -71,7 +73,7 @@ const KeyboardEventViewer: React.FC = () => {
                     </CardContent>
                 </Card>
             ) : (
-                <Alert severity="info">Waiting for a key press...</Alert>
+                <Alert severity="info">{t('tools.keyboard-event-viewer.waiting_for_press')}</Alert>
             )}
         </ToolPageLayout>
     );

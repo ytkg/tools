@@ -20,13 +20,13 @@ Object.defineProperty(window, 'crypto', {
 describe('HashGenerator', () => {
   it('renders the component', () => {
     render(<HashGenerator />);
-    expect(screen.getByText('Hash Generator')).toBeInTheDocument();
+    expect(screen.getByText('tools.hash-generator.name')).toBeInTheDocument();
   });
 
   it('generates hashes for input text', async () => {
     render(<HashGenerator />);
-    const inputArea = screen.getByLabelText('Input Text');
-    const generateButton = screen.getByText('Generate Hashes');
+    const inputArea = screen.getByLabelText('tools.hash-generator.input_label');
+    const generateButton = screen.getByText('tools.hash-generator.generate_button');
 
     fireEvent.change(inputArea, { target: { value: 'test' } });
     fireEvent.click(generateButton);

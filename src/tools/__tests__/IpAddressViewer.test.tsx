@@ -20,7 +20,7 @@ describe('IpAddressViewer', () => {
 
         render(<IpAddressViewer />);
 
-        expect(screen.getByText('IP Address Viewer')).toBeInTheDocument();
+        expect(screen.getByText('tools.ip-address-viewer.name')).toBeInTheDocument();
 
         await waitFor(() => {
             expect(screen.getByText('123.45.67.89')).toBeInTheDocument();
