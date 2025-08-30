@@ -9,6 +9,8 @@ const QrCodeGenerator: React.FC = () => {
   const [text, setText] = useState('https://github.com');
   const [size, setSize] = useState(256);
   const [level, setLevel] = useState<'L' | 'M' | 'Q' | 'H'>('M');
+  const [fgColor, setFgColor] = useState('#000000');
+  const [bgColor, setBgColor] = useState('#ffffff');
 
   return (
     <ToolPageLayout
@@ -37,20 +39,40 @@ const QrCodeGenerator: React.FC = () => {
             max={512}
             sx={{ mb: 2 }}
           />
-          <FormControl fullWidth>
-            <InputLabel id="qr-level-label">{t('tools.qr-code-generator.level_label')}</InputLabel>
-            <Select
-              labelId="qr-level-label"
-              value={level}
-              label={t('tools.qr-code-generator.level_label')}
-              onChange={(e) => setLevel(e.target.value as 'L' | 'M' | 'Q' | 'H')}
-            >
-              <MenuItem value="L">{t('tools.qr-code-generator.level_l')}</MenuItem>
-              <MenuItem value="M">{t('tools.qr-code-generator.level_m')}</MenuItem>
-              <MenuItem value="Q">{t('tools.qr-code-generator.level_q')}</MenuItem>
-              <MenuItem value="H">{t('tools.qr-code-generator.level_h')}</MenuItem>
-            </Select>
-          </FormControl>
+          <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'stretch', sm: 'flex-start' } }}>
+            <FormControl fullWidth sx={{ flex: 1 }}>
+              <InputLabel id="qr-level-label" shrink>{t('tools.qr-code-generator.level_label')}</InputLabel>
+              <Select
+                labelId="qr-level-label"
+                value={level}
+                label={t('tools.qr-code-generator.level_label')}
+                onChange={(e) => setLevel(e.target.value as 'L' | 'M' | 'Q' | 'H')}
+              >
+                <MenuItem value="L">{t('tools.qr-code-generator.level_l')}</MenuItem>
+                <MenuItem value="M">{t('tools.qr-code-generator.level_m')}</MenuItem>
+                <MenuItem value="Q">{t('tools.qr-code-generator.level_q')}</MenuItem>
+                <MenuItem value="H">{t('tools.qr-code-generator.level_h')}</MenuItem>
+              </Select>
+            </FormControl>
+            <TextField
+              type="color"
+              label={t('tools.qr-code-generator.fg_color_label')}
+              value={fgColor}
+              onChange={(e) => setFgColor(e.target.value)}
+              fullWidth
+              inputProps={{ 'aria-label': 'tools.qr-code-generator.fg_color_label' }}
+              sx={{ flex: 1 }}
+            />
+            <TextField
+              type="color"
+              label={t('tools.qr-code-generator.bg_color_label')}
+              value={bgColor}
+              onChange={(e) => setBgColor(e.target.value)}
+              fullWidth
+              inputProps={{ 'aria-label': 'tools.qr-code-generator.bg_color_label' }}
+              sx={{ flex: 1 }}
+            />
+          </Box>
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2 }}>
           <Paper sx={{ p: 2, display: 'inline-block' }}>
@@ -58,6 +80,8 @@ const QrCodeGenerator: React.FC = () => {
               value={text}
               size={size}
               level={level}
+              fgColor={fgColor}
+              bgColor={bgColor}
             />
           </Paper>
         </Box>

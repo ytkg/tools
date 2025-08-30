@@ -50,7 +50,9 @@
       "level_l": "低 (L)",
       "level_m": "中 (M)",
       "level_q": "四分位 (Q)",
-      "level_h": "高 (H)"
+      "level_h": "高 (H)",
+      "fg_color_label": "前景色",
+      "bg_color_label": "背景色"
     },
     "unix-timestamp": {
       "name": "Unixタイムスタンプ変換",

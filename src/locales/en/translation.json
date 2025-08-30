@@ -50,7 +50,9 @@
       "level_l": "Low (L)",
       "level_m": "Medium (M)",
       "level_q": "Quartile (Q)",
-      "level_h": "High (H)"
+      "level_h": "High (H)",
+      "fg_color_label": "Foreground color",
+      "bg_color_label": "Background color"
     },
     "unix-timestamp": {
       "name": "Unix Timestamp Converter",

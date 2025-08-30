@@ -17,4 +17,15 @@ describe('QrCodeGenerator', () => {
     // Just make sure it doesn't crash and the canvas is still there
     expect(screen.getByRole('img')).toBeInTheDocument();
   });
+
+  it('allows changing foreground and background colors', () => {
+    render(<QrCodeGenerator />);
+    const fgInput = screen.getByLabelText('tools.qr-code-generator.fg_color_label');
+    const bgInput = screen.getByLabelText('tools.qr-code-generator.bg_color_label');
+
+    // Change colors and ensure the canvas still renders
+    fireEvent.change(fgInput, { target: { value: '#ff0000' } });
+    fireEvent.change(bgInput, { target: { value: '#00ff00' } });
+    expect(screen.getByRole('img')).toBeInTheDocument();
+  });
 });
