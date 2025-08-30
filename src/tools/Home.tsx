@@ -2,11 +2,13 @@ import React, { useState, useMemo } from 'react';
 import PageMeta from '../components/PageMeta';
 import { toolList } from '../data/tools';
 import { Card, CardActionArea, CardContent, Typography, Chip, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
+  const { lang: langParam } = useParams();
+  const currentLang = (langParam ?? 'ja').startsWith('en') ? 'en' : 'ja';
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   const allTags = useMemo(() => {
@@ -65,7 +67,7 @@ const Home: React.FC = () => {
         {filteredTools.map(tool => (
           <Box key={tool.path} sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', md: 'calc(33.33% - 16px)' } }}>
             <Card sx={{ height: '100%' }}>
-              <CardActionArea component={Link} to={tool.path} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
+              <CardActionArea component={Link} to={`/${currentLang}${tool.path}`} sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
                 <CardContent sx={{ flexGrow: 1, width: '100%' }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
                     {tool.icon}

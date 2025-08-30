@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -15,7 +15,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Select from '@mui/material/Select';
 import type { SelectChangeEvent } from '@mui/material/Select';
@@ -52,14 +52,25 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const navigationList = (t: (key: string) => string) => [
-    { text: t('layout.home'), path: '/', icon: <HomeIcon /> },
-    ...toolList.map(tool => ({...tool, text: t(`tools.${tool.path.substring(1)}.name`)}))
+const navigationList = (
+  t: (key: string) => string,
+  lang: string
+) => [
+  { text: t('layout.home'), path: `/${lang}`, icon: <HomeIcon /> },
+  ...toolList.map(tool => ({
+    ...tool,
+    // tool.path already includes a leading slash
+    path: `/${lang}${tool.path}`,
+    text: t(`tools.${tool.path.substring(1)}.name`),
+  })),
 ];
 
 export default function ResponsiveLayout() {
     const theme = useTheme();
     const { i18n, t } = useTranslation();
+    const { lang: langParam } = useParams();
+    const navigate = useNavigate();
+    const location = useLocation();
     const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -67,8 +78,27 @@ export default function ResponsiveLayout() {
         setMobileOpen(!mobileOpen);
     };
 
+    const currentLang = (langParam ?? i18n.language ?? 'ja').startsWith('en') ? 'en' : 'ja';
+
+    // Sync i18n with URL param when it changes
+    useEffect(() => {
+        if (i18n.language !== currentLang) {
+            i18n.changeLanguage(currentLang);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentLang]);
+
     const handleLanguageChange = (event: SelectChangeEvent) => {
-        i18n.changeLanguage(event.target.value);
+        const newLang = (event.target.value as string).startsWith('en') ? 'en' : 'ja';
+        // Replace the first segment in the path with the new language
+        const segments = location.pathname.split('/');
+        // ['', lang, ...rest]
+        if (segments.length > 1) {
+            segments[1] = newLang;
+        }
+        const newPath = segments.join('/') || `/${newLang}`;
+        i18n.changeLanguage(newLang);
+        navigate(newPath, { replace: true });
     };
 
     const drawerContent = (
@@ -80,7 +110,7 @@ export default function ResponsiveLayout() {
             </DrawerHeader>
             <Divider />
             <List>
-                {navigationList(t).map((tool) => (
+                {navigationList(t, currentLang).map((tool) => (
                     <ListItem key={tool.text} disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             component={Link}
@@ -121,7 +151,7 @@ export default function ResponsiveLayout() {
                     <Box sx={{ flexGrow: 1 }} />
                     <FormControl size="small" sx={{ m: 1, minWidth: 120 }}>
                         <Select
-                            value={i18n.language}
+                            value={currentLang}
                             onChange={handleLanguageChange}
                         >
                             <MenuItem value={'en'}>English</MenuItem>

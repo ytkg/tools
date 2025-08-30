@@ -10,7 +10,15 @@ export default defineConfig({
     react(),
     viteSitemap({
       hostname: 'https://tools.takagi.dev',
-      dynamicRoutes: toolsData.map((tool) => `/${tool.path}`),
+      // Include language-prefixed routes for all tools and language roots
+      dynamicRoutes: (() => {
+        const locales = ['ja', 'en'];
+        const toolRoutes = toolsData.map((tool) => tool.path);
+        return locales.flatMap((lng) => [
+          `/${lng}`,
+          ...toolRoutes.map((p) => `/${lng}/${p}`),
+        ]);
+      })(),
       exclude: ['/404'],
     }),
   ],
